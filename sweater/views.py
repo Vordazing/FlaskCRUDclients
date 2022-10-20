@@ -1,10 +1,10 @@
 from flask import Flask, render_template, url_for, redirect
 from flask_bcrypt import Bcrypt
 from flask_login import login_user, login_required, logout_user
-from .forms import LoginFrom, RegisterForm
+from .forms import LoginFrom, RegisterForm, AddClient
 
 from sweater import app, db
-from sweater.models import Users
+from sweater.models import Users, Customer, Condition, Status, Payment_method, Payment_type
 
 
 bcrypt = Bcrypt(app)
@@ -55,3 +55,34 @@ def register():
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('page404.html'), 404
+
+
+@app.route('/customer', methods=['GET', 'POST'])
+def cust():
+    customers = Customer.query.all()
+    return render_template('customer.html', customers=customers)
+
+
+@app.route('/addclient', methods=['GET', 'POST'])
+def addclient():
+    formClient = AddClient()
+    formClient.condition_id.choices = [(conditions.id_condition, conditions.list_condition) for conditions in
+                                       Condition.query.all()]
+    formClient.status_id.choices = [(statuses.id_status, statuses.list_status) for statuses in
+                                    Status.query.all()]
+    formClient.payment_method_id.choices = [(payment_methods.id_payment_method, payment_methods.list_payment_method) for
+                                            payment_methods in
+                                            Payment_method.query.all()]
+    formClient.payment_type_id.choices = [(payment_types.id_payment_type, payment_types.list_payment_type) for
+                                          payment_types in
+                                          Payment_type.query.all()]
+
+    if formClient.validate_on_submit():
+
+        new_client = Customer(name=formClient.name.data, surname=formClient.surname.data, debt=formClient.debt.data,
+                              last_account=formClient.last_account.data, last_bill_of_the_month=formClient.last_bill_of_the_month.data, rate=formClient.rate.data)
+        db.session.add(new_client)
+        db.session.commit()
+        return redirect('/cust')
+
+    return render_template('addclient.html', formclient=formClient)

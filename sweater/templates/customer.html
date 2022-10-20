@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customers</title>
+    <link type="text/css" href="{{url_for('static', filename='css/customer.css')}}" rel="stylesheet"/>
+</head>
+<body>
+<section>
+  <h1>База клиентов</h1>
+  <h2><a href="{{url_for('addclient')}}">Добавить клиента</a></h2>
+  <div class="tbl-header">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <thead>
+        <tr>
+          <th>Фамилия Клиента</th>
+          <th>Имя клиента</th>
+          <th>Долг</th>
+          <th>Послдений счет</th>
+          <th>Последний счет (месяца)</th>
+          <th>Тариф</th>
+          <th>Состояние</th>
+          <th>Статус</th>
+          <th>Способ оплаты</th>
+          <th>Тип оплаты</th>
+          <th>Количество всего машин</th>
+          <th>Коментарий</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <div class="tbl-content">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <tbody>
+      {% for el in customers %}
+        <tr>
+          <td>{{ el.surname }}</td>
+          <td>{{ el.name }}</td>
+          <td>{{ el.debt }}</td>
+          <td>{{ el.last_account }}</td>
+          <td>{{ el.last_bill_of_the_month}}</td>
+          <td>{{ el.rate }}</td>
+          <td>{{ el.condition.list_condition }}</td>
+          <td>{{ el.status.list_status }}</td>
+          <td>{{ el.payment_method.list_payment_method }}</td>
+          <td>{{ el.payment_type.list_payment_type }}</td>
+          <td>404</td>
+          <td>Тест комент</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+</body>
+</html>

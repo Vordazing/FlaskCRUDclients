@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>addClient</title>
+</head>
+<body>
+<h1>Заполнения карточки клиента</h1>
+    <form method="POST" action="">
+        {{formclient.hidden_tag()}}
+        {{formclient.name()}}
+        {{formclient.surname()}}
+        {{formclient.debt()}}
+        {{formclient.last_account()}}
+        {{formclient.last_bill_of_the_month()}}
+        {{formclient.rate()}}
+        {{formclient.condition_id()}}
+        {{formclient.status_id()}}
+        {{formclient.payment_method_id()}}
+        {{formclient.payment_type_id()}}
+        {{formclient.submit()}}
+    </form>
+<a href="{{url_for('home')}}"> Home </a><br>
+</body>
+</html>
