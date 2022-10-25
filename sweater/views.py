@@ -79,10 +79,22 @@ def addclient():
 
     if formClient.validate_on_submit():
 
+
+
         new_client = Customer(name=formClient.name.data, surname=formClient.surname.data, debt=formClient.debt.data,
-                              last_account=formClient.last_account.data, last_bill_of_the_month=formClient.last_bill_of_the_month.data, rate=formClient.rate.data)
+                              last_account=formClient.last_account.data, rate=formClient.rate.data,
+                              condition_id=formClient.condition_id.data, status_id=formClient.status_id.data, payment_method_id=formClient.payment_method_id.data, payment_type_id=formClient.payment_type_id.data)
+
         db.session.add(new_client)
         db.session.commit()
-        return redirect('/cust')
+        return redirect('/customer')
 
     return render_template('addclient.html', formclient=formClient)
+
+
+@app.route('/customer/<int:id>', methods=['GET', 'POST'])
+def cust_open(id):
+    customer = Customer.query.get(id)
+    return render_template('client_open.html', customer=customer)
+
+

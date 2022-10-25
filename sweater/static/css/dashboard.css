@@ -16,6 +16,14 @@ body{
   text-align: center;
   height: 100vh;
 }
+
+a
+{
+color: #45f3ff;
+text-decoration: none !important;
+border: none !important;
+}
+
 button{
   display: inline-block;
   position: relative;

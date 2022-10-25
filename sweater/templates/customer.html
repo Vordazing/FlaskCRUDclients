@@ -6,6 +6,7 @@
     <link type="text/css" href="{{url_for('static', filename='css/customer.css')}}" rel="stylesheet"/>
 </head>
 <body>
+<p><a href="{{url_for('dashboard')}}">В меню</a></p>
 <section>
   <h1>База клиентов</h1>
   <h2><a href="{{url_for('addclient')}}">Добавить клиента</a></h2>
@@ -23,8 +24,8 @@
           <th>Статус</th>
           <th>Способ оплаты</th>
           <th>Тип оплаты</th>
-          <th>Количество всего машин</th>
-          <th>Коментарий</th>
+          <th>Количество машин</th>
+          <th></th>
         </tr>
       </thead>
     </table>
@@ -45,7 +46,12 @@
           <td>{{ el.payment_method.list_payment_method }}</td>
           <td>{{ el.payment_type.list_payment_type }}</td>
           <td>404</td>
-          <td>Тест комент</td>
+          <td>
+              <a href="/customer/{{el.id}}">
+                <button>Подробнее</button>
+              </a>
+          </td>
+
         </tr>
       {% endfor %}
       </tbody>
