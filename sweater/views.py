@@ -98,3 +98,16 @@ def cust_open(id):
     return render_template('client_open.html', customer=customer)
 
 
+@app.route('/customer/<int:id>/del', methods=['GET', 'POST'])
+def cust_del(id):
+    customer = Customer.query.get_or_404(id)
+    try:
+        db.session.delete(customer)
+        db.session.commit()
+        return redirect("/customer")
+    except:
+        return "Ошибка"
+
+
+
+

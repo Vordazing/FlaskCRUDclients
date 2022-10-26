@@ -1,10 +1,71 @@
-.gradient-custom {
-/* fallback for old browsers */
-background: #f6d365;
 
-/* Chrome 10-25, Safari 5.1-6 */
-background: -webkit-linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1));
+.section-information{
+    position: absolute;
+    right: 650px;
+}
+.section-information h1{
+    color: orange;
+    position: absolute;
+    left: 200px;
+}
+.ul-all{
+    position: absolute;
+    padding-left: 0;
+    top: 70px;
+    list-style-type: none;
+}
+.ul-all li{
+    white-space: nowrap;
+    margin: 20px 0px;
+    color: green;
+}
+.ul-one{
+    position: absolute;
+    padding-left: 0;
+    top: 70px;
+    list-style-type: none;
+    left: 150px;
+}
+.ul-one li{
+    white-space: nowrap;
+    margin: 20px 0px;
+    color: blueviolet;
+}
+.ul-accounts{
+    position: absolute;
+    padding-left: 0;
+    top: 30px;
+    list-style-type: none;
+    left: 370px;
+}
+.ul-accounts li{
+    text-align: center;
+    white-space: nowrap;
+    margin: 55px ;
+    color: green;
+}
+.ul-info{
+    position: absolute;
+    padding-left: 0;
+    top: 60px;
+    list-style-type: none;
+    left: 370px;
+}
+.ul-info li{
+    white-space: nowrap;
+    margin: 55px ;
+    color: blueviolet;
+}
+.client{
+    position: absolute;
+    top:280px;
+    left: 130px;
+    margin: 10px;
+    text-align: center;
+}
 
-/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-background: linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1))
+.delete_edit{
+    position: absolute;
+    margin: 10px;
+    top: 15px;
 }
