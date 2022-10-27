@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, SelectField
-from wtforms.validators import InputRequired, Length, ValidationError
+from wtforms.validators import InputRequired, Length, ValidationError, DataRequired
 from .models import Users
 
 
@@ -35,3 +35,16 @@ class AddClient(FlaskForm):
     payment_method_id = SelectField('payment_method', choices=[], coerce=int)
     payment_type_id = SelectField('payment_type', choices=[], coerce=int)
     submit = SubmitField("Добавить клиента")
+
+class UpdateClient(FlaskForm):
+    name = StringField(validators=[DataRequired()])
+    surname = StringField(validators=[DataRequired()])
+    rate = StringField(validators=[DataRequired()])
+    debt = StringField(validators=[DataRequired()])
+
+    condition_id = SelectField('condition', choices=[], coerce=int)
+    status_id = SelectField('status', choices=[], coerce=int)
+    payment_method_id = SelectField('payment_method', choices=[], coerce=int)
+    payment_type_id = SelectField('payment_type', choices=[], coerce=int)
+
+    submit = SubmitField("Обновить клиента")

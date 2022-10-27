@@ -1,7 +1,7 @@
-from flask import Flask, render_template, url_for, redirect
+from flask import Flask, render_template, url_for, redirect, request
 from flask_bcrypt import Bcrypt
 from flask_login import login_user, login_required, logout_user
-from .forms import LoginFrom, RegisterForm, AddClient
+from .forms import LoginFrom, RegisterForm, AddClient, UpdateClient
 
 from sweater import app, db
 from sweater.models import Users, Customer, Condition, Status, Payment_method, Payment_type
@@ -63,33 +63,29 @@ def cust():
     return render_template('customer.html', customers=customers)
 
 
-@app.route('/addclient', methods=['GET', 'POST'])
+@app.route('/client_add', methods=['GET', 'POST'])
 def addclient():
-    formClient = AddClient()
-    formClient.condition_id.choices = [(conditions.id_condition, conditions.list_condition) for conditions in
+    formclientadd = AddClient()
+    formclientadd.condition_id.choices = [(conditions.id_condition, conditions.list_condition) for conditions in
                                        Condition.query.all()]
-    formClient.status_id.choices = [(statuses.id_status, statuses.list_status) for statuses in
+    formclientadd.status_id.choices = [(statuses.id_status, statuses.list_status) for statuses in
                                     Status.query.all()]
-    formClient.payment_method_id.choices = [(payment_methods.id_payment_method, payment_methods.list_payment_method) for
+    formclientadd.payment_method_id.choices = [(payment_methods.id_payment_method, payment_methods.list_payment_method) for
                                             payment_methods in
                                             Payment_method.query.all()]
-    formClient.payment_type_id.choices = [(payment_types.id_payment_type, payment_types.list_payment_type) for
+    formclientadd.payment_type_id.choices = [(payment_types.id_payment_type, payment_types.list_payment_type) for
                                           payment_types in
                                           Payment_type.query.all()]
 
-    if formClient.validate_on_submit():
-
-
-
-        new_client = Customer(name=formClient.name.data, surname=formClient.surname.data, debt=formClient.debt.data,
-                              last_account=formClient.last_account.data, rate=formClient.rate.data,
-                              condition_id=formClient.condition_id.data, status_id=formClient.status_id.data, payment_method_id=formClient.payment_method_id.data, payment_type_id=formClient.payment_type_id.data)
-
+    if formclientadd.validate_on_submit():
+        new_client = Customer(name=formclientadd.name.data, surname=formclientadd.surname.data, debt=formclientadd.debt.data,
+                              last_account=formclientadd.last_account.data, rate=formclientadd.rate.data,
+                              condition_id=formclientadd.condition_id.data, status_id=formclientadd.status_id.data, payment_method_id=formclientadd.payment_method_id.data, payment_type_id=formclientadd.payment_type_id.data)
         db.session.add(new_client)
         db.session.commit()
         return redirect('/customer')
 
-    return render_template('addclient.html', formclient=formClient)
+    return render_template('client_add.html', formclientadd=formclientadd)
 
 
 @app.route('/customer/<int:id>', methods=['GET', 'POST'])
@@ -106,7 +102,35 @@ def cust_del(id):
         db.session.commit()
         return redirect("/customer")
     except:
-        return "Ошибка"
+        return "Error"
+
+
+@app.route('/customer/<int:id>/update', methods=['GET', 'POST'])
+def cust_update(id):
+    customer = Customer.query.get(id)
+    formclientupdate = UpdateClient(obj=customer)
+
+    formclientupdate.condition_id.choices = [(conditions.id_condition, conditions.list_condition) for conditions in
+                                       Condition.query.all()]
+    formclientupdate.status_id.choices = [(statuses.id_status, statuses.list_status) for statuses in
+                                    Status.query.all()]
+    formclientupdate.payment_method_id.choices = [(payment_methods.id_payment_method, payment_methods.list_payment_method) for
+                                            payment_methods in
+                                            Payment_method.query.all()]
+    formclientupdate.payment_type_id.choices = [(payment_types.id_payment_type, payment_types.list_payment_type) for
+                                          payment_types in
+                                          Payment_type.query.all()]
+
+    if formclientupdate.validate_on_submit():
+        try:
+            formclientupdate.populate_obj(customer)
+            db.session.commit()
+            return redirect("/customer")
+        except:
+            "Error"
+
+    return render_template('client_update.html', formclientupdate=formclientupdate, customer=customer)
+
 
 
 

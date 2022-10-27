@@ -1,0 +1,71 @@
+
+.section-information{
+    position: absolute;
+    right: 650px;
+}
+.section-information h1{
+    color: orange;
+    position: absolute;
+    left: 200px;
+}
+.ul-all{
+    position: absolute;
+    padding-left: 0;
+    top: 60px;
+    list-style-type: none;
+}
+.ul-all li{
+    white-space: nowrap;
+    margin: 23px 0px;
+    color: green;
+}
+.ul-one{
+    position: absolute;
+    padding-left: 0;
+    top: 57px;
+    list-style-type: none;
+    left: 150px;
+}
+.ul-one li{
+    white-space: nowrap;
+    margin: 20px 0px;
+    color: blueviolet;
+}
+.ul-accounts{
+    position: absolute;
+    padding-left: 0;
+    top: 30px;
+    list-style-type: none;
+    left: 370px;
+}
+.ul-accounts li{
+    text-align: center;
+    white-space: nowrap;
+    margin: 55px ;
+    color: green;
+}
+.ul-info{
+    position: absolute;
+    padding-left: 0;
+    top: 60px;
+    list-style-type: none;
+    left: 370px;
+}
+.ul-info li{
+    white-space: nowrap;
+    margin: 55px ;
+    color: blueviolet;
+}
+.client{
+    position: absolute;
+    top:280px;
+    left: 130px;
+    margin: 10px;
+    text-align: center;
+}
+
+.delete_edit{
+    position: absolute;
+    margin: 10px;
+    top: 15px;
+}
