@@ -57,9 +57,22 @@ class Payment_type(db.Model):
     cust_4 = db.relationship('Customer', backref='payment_type', lazy=True)
 
 
-class Done_accounts_counter(db.Model):
-    __tablename__ = 'done_accounts_counter'
-    id = db.Column(db.Integer, primary_key=True)
+class Done_accounts(db.Model):
+    __tablename__ = 'done_accounts'
+    id_done_accounts = db.Column(db.Integer, primary_key=True)
     client_id = db.Column(db.Integer, nullable=False)
     after = db.Column(db.Integer, nullable=False)
     result = db.Column(db.String, nullable=False)
+
+    model = db.Column(db.String, nullable=False)
+    consumption = db.Column(db.Float, nullable=False)
+    start_of_placement = db.Column(db.Integer, nullable=False)
+    end_of_placement = db.Column(db.Integer, nullable=False)
+    simple_in_hours = db.Column(db.Integer, nullable=False)
+    number_of_cars = db.Column(db.Integer, nullable=False)
+    result_day = db.Column(db.String, nullable=False)
+
+
+
+
+

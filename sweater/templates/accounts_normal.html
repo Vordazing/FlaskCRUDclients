@@ -6,10 +6,34 @@
 </head>
 <body>
 <h1>Welcome The Account Is Normal</h1>
+<h2>{{client.name}} {{client.surname}}</h2>
 <a href="/accounts_all"><button>Назад</button></a>
-    <div>
-        <p>ID Клиента:-</p>
-        <p>{{ client_id }}</p><p>{{ client.name }}</p>
-    </div>
+    <form method="POST">
+        <label>Модель:</label>
+        <input type="text" name="model">
+        <label>Потребление:</label>
+        <input type="text" name="consumption">
+        <label>Количество машин:</label>
+        <input type="number" name="number_of_cars">
+        <label>Начало размещения:</label>
+        <input type="number" name="start_of_placement">
+        <label>Конец размещения:</label>
+        <input type="number" name="end_of_placement">
+        <label>Простой в часах:</label>
+        <input type="number" name="simple_in_hours">
+        <label>Тариф:</label>
+        <text>{{client.rate}}</text>
+
+        <input type="submit" name="add" value="Рассчитать">
+
+     </form>
+{% if val  %}
+ <h3>Результат: {{val}} руб</h3>
+ <form method="POST" action="/done_add_db_normal">
+     <label> Запись в бд ?</label>
+     <a><button>YES</button></a>
+ </form>
+ <a href="/accounts_normal"><button>No</button></a>
+ {% endif %}
 </body>
 </html>

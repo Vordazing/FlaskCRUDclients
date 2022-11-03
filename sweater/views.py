@@ -4,7 +4,7 @@ from flask_login import login_user, login_required, logout_user
 from .forms import LoginFrom, RegisterForm, AddClient, UpdateClient
 
 from sweater import app, db
-from sweater.models import Users, Customer, Condition, Status, Payment_method, Payment_type, Done_accounts_counter
+from sweater.models import Users, Customer, Condition, Status, Payment_method, Payment_type, Done_accounts
 
 
 bcrypt = Bcrypt(app)
@@ -167,6 +167,31 @@ def accounts_all():
 def accounts_normal():
     client_id = session.get('id_client', None)
     client = Customer.query.get(client_id)
+    val7 = client.rate
+    if request.method == "POST":
+        val1 = request.form["model"]
+        val2 = float(request.form["consumption"])
+        val3 = float(request.form["number_of_cars"])
+        val4 = float(request.form["start_of_placement"])
+        val5 = float(request.form["end_of_placement"])
+        val6 = float(request.form["simple_in_hours"])
+        if request.form.get("add"):
+
+            val8 = float(((val5 - val4)+1)-(val6/24))
+            result = round(float((((val2*val3)*float(val7))*val8)*24), 3)
+
+            session['id_client_db'] = client_id
+            session['model'] = val1
+            session['consumption'] = val2
+            session['number_of_cars'] = val3
+            session['start_of_placement'] = val4
+            session['end_of_placement'] = val5
+            session['simple_in_hours'] = val6
+            session['result_day'] = val8
+            session['result'] = result
+
+        return render_template('accounts_normal.html', client=client, client_id=client_id, val=result)
+
     return render_template('accounts_normal.html', client_id=client_id, client=client)
 
 
@@ -189,12 +214,35 @@ def accounts_counter():
 
 
 @app.route('/done_add_db_counter', methods=["GET", "POST"])
-def done():
+def done_counter():
     client_id_db = session.get('id_client_db', None)
     after_db = session.get('after_db', None)
     result_db = session.get('result_db', None)
 
-    result = Done_accounts_counter(client_id=client_id_db, after=after_db, result=result_db)
+    print(client_id_db)
+    print(after_db)
+    print(result_db)
+
+    result = Done_accounts(client_id=client_id_db, after=after_db, result=result_db)
+    db.session.add(result)
+    db.session.commit()
+
+    return render_template('done_db.html')
+
+
+@app.route('/done_add_db_normal', methods=["GET", "POST"])
+def done_normal():
+    client_id_db = session.get('id_client_db', None)
+    model = session.get('model', None)
+    consumption = session.get('consumption', None)
+    number_of_cars = session.get('number_of_cars', None)
+    start_of_placement = session.get('start_of_placement', None)
+    end_of_placement = session.get('end_of_placement', None)
+    simple_in_hours = session.get('simple_in_hours', None)
+    result_day = session.get('result_day', None)
+    result = session.get('result', None)
+
+    result = Done_accounts(client_id=client_id_db, model=model, consumption=consumption, start_of_placement=start_of_placement, end_of_placement=end_of_placement, simple_in_hours=simple_in_hours, number_of_cars=number_of_cars, result_day=result_day, result=result)
     db.session.add(result)
     db.session.commit()
 
