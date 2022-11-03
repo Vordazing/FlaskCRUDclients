@@ -1,10 +1,10 @@
-from flask import Flask, render_template, url_for, redirect, request
+from flask import Flask, render_template, url_for, redirect, request, session
 from flask_bcrypt import Bcrypt
 from flask_login import login_user, login_required, logout_user
 from .forms import LoginFrom, RegisterForm, AddClient, UpdateClient
 
 from sweater import app, db
-from sweater.models import Users, Customer, Condition, Status, Payment_method, Payment_type
+from sweater.models import Users, Customer, Condition, Status, Payment_method, Payment_type, Done_accounts_counter
 
 
 bcrypt = Bcrypt(app)
@@ -52,9 +52,15 @@ def register():
 
     return render_template('register.html', form=form)
 
+
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('page404.html'), 404
+
+
+@app.errorhandler(500)
+def server_error(error):
+    return render_template("page500.html", error=error)
 
 
 @app.route('/customer', methods=['GET', 'POST'])
@@ -130,6 +136,77 @@ def cust_update(id):
             "Error"
 
     return render_template('client_update.html', formclientupdate=formclientupdate, customer=customer)
+
+
+@app.route('/accounts_all', methods=['GET', 'POST'])
+def accounts_all():
+
+    all = Customer.query.all()
+
+    if request.method == 'POST':
+        operation = request.form['operation']
+        client = request.form.get('client')
+        part = client.split()
+        name = part[0]
+        surname = part[1]
+        id_client = Customer.query.filter_by(name=name, surname=surname).first()
+
+        if operation == 'accounts1':
+            session['id_client'] = id_client.id
+            return redirect(url_for('accounts_normal'))
+        elif operation == 'accounts2':
+            session['id_client'] = id_client.id
+            return redirect(url_for('accounts_counter'))
+        else:
+            return redirect('/accounts_all')
+
+    return render_template('accounts_all.html', all=all)
+
+
+@app.route('/accounts_normal', methods=['GET', 'POST'])
+def accounts_normal():
+    client_id = session.get('id_client', None)
+    client = Customer.query.get(client_id)
+    return render_template('accounts_normal.html', client_id=client_id, client=client)
+
+
+@app.route('/accounts_counter', methods=["POST", "GET"])
+def accounts_counter():
+    client_id = session.get('id_client', None)
+    client = Customer.query.get(client_id)
+    val3 = client.rate
+    if request.method == "POST":
+        val1 = int(request.form["field1"])
+        val2 = int(request.form["field2"])
+        if request.form.get("add"):
+            result = (val2 - val1) * val3
+            session['id_client_db'] = client_id
+            session['after_db'] = val2
+            session['result_db'] = result
+
+        return render_template('accounts_counter.html', client=client, client_id=client_id, val=result)
+    return render_template('accounts_counter.html', client=client, client_id=client_id)
+
+
+@app.route('/done_add_db_counter', methods=["GET", "POST"])
+def done():
+    client_id_db = session.get('id_client_db', None)
+    after_db = session.get('after_db', None)
+    result_db = session.get('result_db', None)
+
+    result = Done_accounts_counter(client_id=client_id_db, after=after_db, result=result_db)
+    db.session.add(result)
+    db.session.commit()
+
+    return render_template('done_db.html')
+
+
+
+
+
+
+
+
 
 
 

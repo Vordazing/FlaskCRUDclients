@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Accounts</title>
+</head>
+<body>
+<h1>Добро пожаловать на высатвление счета!</h1>
+<a href="/dashboard"><button>В меню</button></a>
+<div>
+    <form method="POST" action="/accounts_all">
+        <label>Выберете клиента:</label>
+        <select name="client">
+        {% for el in all %}
+        <option>{{el.name}} {{el.surname}}</option>
+        {% endfor %}
+        </select>
+        <label>Выберете тип счета:</label>
+        <select name="operation">
+          <option value="accounts1">Счет-Обычный</option>
+          <option value="accounts2">Счет-Счетчик</option>
+        </select>
+        <a>
+            <button>Дальше</button>
+        </a>
+
+    </form>
+</div>
+</body>
+</html>
+
+

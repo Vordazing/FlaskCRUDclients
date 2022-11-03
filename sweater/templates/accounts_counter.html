@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Account Is Counter</title>
+</head>
+<body>
+ <h1>Welcome The Account Is Counter</h1>
+ <h2>{{client.name}} {{client.surname}} {{client.id}}</h2>
+     <form method="POST">
+         <label>Показание счетчика на начало периода:</label>
+         <input type="number" name="field1">
+         <label>Показание счетчика на конец периода:</label>
+         <input type="number" name="field2">
+         <br />
+          <label>Тариф:</label>
+         <text>{{client.rate}}</text>
+         <br />
+         <br />
+         <input type="submit" name="add" value="Рассчитать">
+     </form>
+ {% if val  %}
+ <h3>Результат: {{val}} руб</h3>
+ <form method="POST" action="/done_add_db_counter">
+     <label> Запись в бд ?</label>
+     <a><button>YES</button></a>
+ </form>
+ <a href="/accounts_counter"><button>No</button></a>
+ {% endif %}
+</body>
+</html>

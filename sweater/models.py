@@ -55,3 +55,11 @@ class Payment_type(db.Model):
     id_payment_type = db.Column(db.Integer, primary_key=True)
     list_payment_type = db.Column(db.String, nullable=False)
     cust_4 = db.relationship('Customer', backref='payment_type', lazy=True)
+
+
+class Done_accounts_counter(db.Model):
+    __tablename__ = 'done_accounts_counter'
+    id = db.Column(db.Integer, primary_key=True)
+    client_id = db.Column(db.Integer, nullable=False)
+    after = db.Column(db.Integer, nullable=False)
+    result = db.Column(db.String, nullable=False)

@@ -1,8 +1,8 @@
 from flask_wtf import FlaskForm
+from wtforms_sqlalchemy.fields import QuerySelectField
 from wtforms import StringField, PasswordField, SubmitField, SelectField
 from wtforms.validators import InputRequired, Length, ValidationError, DataRequired
-from .models import Users
-
+from .models import Users, Customer
 
 
 class RegisterForm(FlaskForm):
@@ -36,6 +36,7 @@ class AddClient(FlaskForm):
     payment_type_id = SelectField('payment_type', choices=[], coerce=int)
     submit = SubmitField("Добавить клиента")
 
+
 class UpdateClient(FlaskForm):
     name = StringField(validators=[DataRequired()])
     surname = StringField(validators=[DataRequired()])
@@ -48,3 +49,4 @@ class UpdateClient(FlaskForm):
     payment_type_id = SelectField('payment_type', choices=[], coerce=int)
 
     submit = SubmitField("Обновить клиента")
+
