@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Account Is Counter</title>
+    <link type="text/css" href="{{url_for('static', filename='css/accounts_counter.css')}}" rel="stylesheet"/>
 </head>
 <body>
  <h1>Welcome The Account Is Counter</h1>
@@ -29,5 +30,26 @@
  </form>
  <a href="/accounts_counter"><button>No</button></a>
  {% endif %}
+<br>
+<table>
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Time</th>
+            <th>After</th>
+            <th>Result</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for el in accounts %}
+        <tr>
+            <td>{{ el.date }}</td>
+            <td>{{ el.time }}</td>
+            <td>{{ el.after }}</td>
+            <td>{{ el.result }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 </body>
 </html>

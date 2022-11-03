@@ -1,3 +1,5 @@
+import datetime
+
 from flask_login import UserMixin
 from sweater import db, login_manager
 
@@ -71,6 +73,9 @@ class Done_accounts(db.Model):
     simple_in_hours = db.Column(db.Integer, nullable=False)
     number_of_cars = db.Column(db.Integer, nullable=False)
     result_day = db.Column(db.String, nullable=False)
+
+    date = db.Column(db.DATETIME, default= )
+    time = db.Column(db.DATETIME, default= )
 
 
 

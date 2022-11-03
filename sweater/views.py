@@ -168,6 +168,7 @@ def accounts_normal():
     client_id = session.get('id_client', None)
     client = Customer.query.get(client_id)
     val7 = client.rate
+    accounts = Done_accounts.query.filter_by(client_id=client_id)
     if request.method == "POST":
         val1 = request.form["model"]
         val2 = float(request.form["consumption"])
@@ -190,9 +191,9 @@ def accounts_normal():
             session['result_day'] = val8
             session['result'] = result
 
-        return render_template('accounts_normal.html', client=client, client_id=client_id, val=result)
+        return render_template('accounts_normal.html', client=client, accounts=accounts, client_id=client_id, val=result)
 
-    return render_template('accounts_normal.html', client_id=client_id, client=client)
+    return render_template('accounts_normal.html', client_id=client_id, client=client, accounts=accounts)
 
 
 @app.route('/accounts_counter', methods=["POST", "GET"])
@@ -200,6 +201,8 @@ def accounts_counter():
     client_id = session.get('id_client', None)
     client = Customer.query.get(client_id)
     val3 = client.rate
+    accounts = Done_accounts.query.filter_by(client_id=client_id)
+
     if request.method == "POST":
         val1 = int(request.form["field1"])
         val2 = int(request.form["field2"])
@@ -209,8 +212,8 @@ def accounts_counter():
             session['after_db'] = val2
             session['result_db'] = result
 
-        return render_template('accounts_counter.html', client=client, client_id=client_id, val=result)
-    return render_template('accounts_counter.html', client=client, client_id=client_id)
+        return render_template('accounts_counter.html', client=client, client_id=client_id, accounts=accounts, val=result)
+    return render_template('accounts_counter.html', client=client, client_id=client_id, accounts=accounts)
 
 
 @app.route('/done_add_db_counter', methods=["GET", "POST"])
@@ -218,10 +221,6 @@ def done_counter():
     client_id_db = session.get('id_client_db', None)
     after_db = session.get('after_db', None)
     result_db = session.get('result_db', None)
-
-    print(client_id_db)
-    print(after_db)
-    print(result_db)
 
     result = Done_accounts(client_id=client_id_db, after=after_db, result=result_db)
     db.session.add(result)
@@ -241,6 +240,7 @@ def done_normal():
     simple_in_hours = session.get('simple_in_hours', None)
     result_day = session.get('result_day', None)
     result = session.get('result', None)
+
 
     result = Done_accounts(client_id=client_id_db, model=model, consumption=consumption, start_of_placement=start_of_placement, end_of_placement=end_of_placement, simple_in_hours=simple_in_hours, number_of_cars=number_of_cars, result_day=result_day, result=result)
     db.session.add(result)

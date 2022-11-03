@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>The Account Is Normal</title>
+    <link type="text/css" href="{{url_for('static', filename='css/accounts_normal.css')}}" rel="stylesheet"/>
 </head>
 <body>
 <h1>Welcome The Account Is Normal</h1>
@@ -34,6 +35,39 @@
      <a><button>YES</button></a>
  </form>
  <a href="/accounts_normal"><button>No</button></a>
- {% endif %}
+{% endif %}
+<br>
+<table>
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Модель</th>
+            <th>Потребление</th>
+            <th>Начало размещения</th>
+            <th>Конец размещения</th>
+            <th>Простой в часах</th>
+            <th>Кол-во</th>
+            <th>Дни</th>
+            <th>Result</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for el in accounts %}
+        <tr>
+            <td>{{ el.date }}</td>
+            <td>{{ el.time }}</td>
+            <td>{{ el.model }}</td>
+            <td>{{ el.consumption }}</td>
+            <td>{{ el.start_of_placement }}</td>
+            <td>{{ el.end_of_placement }}</td>
+            <td>{{ el.simple_in_hours }}</td>
+            <td>{{ el.number_of_cars }}</td>
+            <td>{{ el.result_day }}</td>
+            <td>{{ el.result }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 </body>
 </html>
