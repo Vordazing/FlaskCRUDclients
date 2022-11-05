@@ -1,7 +1,7 @@
-import datetime
 
 from flask_login import UserMixin
 from sweater import db, login_manager
+from datetime import datetime
 
 
 @login_manager.user_loader
@@ -74,8 +74,8 @@ class Done_accounts(db.Model):
     number_of_cars = db.Column(db.Integer, nullable=False)
     result_day = db.Column(db.String, nullable=False)
 
-    date = db.Column(db.DATETIME, default= )
-    time = db.Column(db.DATETIME, default= )
+    date = db.Column(db.DATETIME, default=datetime.utcnow)
+    time = db.Column(db.DATETIME, default=datetime.now)
 
 
 

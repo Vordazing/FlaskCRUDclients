@@ -97,7 +97,17 @@ def addclient():
 @app.route('/customer/<int:id>', methods=['GET', 'POST'])
 def cust_open(id):
     customer = Customer.query.get(id)
-    return render_template('client_open.html', customer=customer)
+    accounts = Done_accounts.query.filter_by(client_id=id)
+    check = 0
+    for data in accounts:
+        check = data.after
+        if check is not None:
+            check = 1
+        elif check is None:
+            check = 2
+        else:
+            pass
+    return render_template('client_open.html', customer=customer, accounts=accounts, check=check)
 
 
 @app.route('/customer/<int:id>/del', methods=['GET', 'POST'])
@@ -188,7 +198,7 @@ def accounts_normal():
             session['start_of_placement'] = val4
             session['end_of_placement'] = val5
             session['simple_in_hours'] = val6
-            session['result_day'] = val8
+            session['result_day'] = round(val8, 3)
             session['result'] = result
 
         return render_template('accounts_normal.html', client=client, accounts=accounts, client_id=client_id, val=result)

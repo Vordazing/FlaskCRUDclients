@@ -69,3 +69,19 @@
     margin: 10px;
     top: 15px;
 }
+
+table{
+    position: relative;
+    top: 500px;
+    border: 3px solid #333;
+    margin: 5px;
+    display: inline-block;
+}
+td{
+    border: 2px solid #333;
+}
+th{
+    background: #ee7171;
+    color: #fff;
+    border: 2px solid #333;
+}
