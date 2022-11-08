@@ -30,6 +30,8 @@ class Customer(db.Model):
     payment_method_id = db.Column(db.Integer, db.ForeignKey('payment_method.id_payment_method'), nullable=False)
     payment_type_id = db.Column(db.Integer, db.ForeignKey('payment_type.id_payment_type'), nullable=False)
 
+    egu_1 = db.relationship('Equipment_accounting', backref='customer', lazy=True)
+
 
 class Condition(db.Model):
     __tablename__ = 'condition'
@@ -76,6 +78,15 @@ class Done_accounts(db.Model):
 
     date = db.Column(db.DATETIME, default=datetime.utcnow)
     time = db.Column(db.DATETIME, default=datetime.now)
+
+
+class Equipment_accounting(db.Model):
+    __tablename__ ='equipment_accounting'
+    id_equipment_accounting = db.Column(db.Integer, primary_key=True)
+    date = db.Column(db.DATETIME, default=datetime.utcnow)
+    model = db.Column(db.String, nullable=False)
+    serial_number = db.Column(db.String, nullable=False)
+    client_id = db.Column(db.Integer, db.ForeignKey('customer.id'), nullable=False)
 
 
 

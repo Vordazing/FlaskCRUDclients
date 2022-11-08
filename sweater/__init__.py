@@ -17,4 +17,6 @@ login_manager.init_app(app)
 login_manager.login_view = "login"
 
 
-from sweater import models, views
+from sweater import models, views, dashboard, login, errors, register, customer, \
+    client_add, client_open, delete, update, done_add_db_counter, done_add_db_normal, \
+    accounts_counter, accounts_normal, accounts_all

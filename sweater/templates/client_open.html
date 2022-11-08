@@ -6,6 +6,34 @@
     <link type="text/css" href="{{url_for('static', filename='css/client_open.css')}}" rel="stylesheet"/>
 </head>
 <body>
+    <div id="openModal" class="modalDialog">
+        <div>
+            <a href="#close"  title="Закрыть" class="close">X</a>
+            <h2>Список машин</h2>
+            <div class="container" >
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Дата установки</th>
+                            <th>Модель</th>
+                            <th>Серийный номер</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for el in equ %}
+                        <tr>
+                            <td>{{ el.date }}</td>
+                            <td>{{ el.model }}</td>
+                            <td>{{ el.serial_number }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
 <div class="section-information">
     <section>
         <h1>Информация</h1>
@@ -23,7 +51,7 @@
             <li>{{customer.status.list_status}}</li>
             <li>{{customer.payment_method.list_payment_method}}</li>
             <li>{{customer.payment_type.list_payment_type}}</li>
-            <li>Error 404</li>
+            <li>{{count}} <a href="#openModal"><button>Открыть</button></a> </li>
         </ul>
         <ul class="ul-accounts">
             <li>Банк:</li>

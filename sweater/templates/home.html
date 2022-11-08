@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
+    <link type="text/css" href="{{url_for('static', filename='css/home.css')}}" rel="stylesheet"/>
 </head>
 <body>
     <h1> Home Test flask Web</h1>
     <a href="{{url_for('login')}}"> Login Page</a><br>
     <a href="/client_add"> add Client </a><br>
     <a href="{{url_for('cust')}}"> Customers </a><br>
-    <a href="/accounts_all">Accounts</a>
+    <a href="/accounts_all">Accounts</a><br>
+
+
 </body>
 </html>
