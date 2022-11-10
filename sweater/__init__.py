@@ -3,7 +3,6 @@ from flask_bcrypt import Bcrypt
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 
-
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://lord:123456789@185.93.110.129/UMC'
 app.config['SECRET_KEY'] = 'thisisasecretkey'
