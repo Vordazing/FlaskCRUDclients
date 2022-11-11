@@ -50,3 +50,10 @@ class UpdateClient(FlaskForm):
 
     submit = SubmitField("Обновить клиента")
 
+
+class AddEquipment(FlaskForm):
+    serial_number = StringField(validators=[DataRequired()])
+    technical_id = SelectField('technical', choices=[], coerce=int)
+    client_id = SelectField('client', choices=[], coerce=int)
+    submit = SubmitField('Добавить оборудование')
+

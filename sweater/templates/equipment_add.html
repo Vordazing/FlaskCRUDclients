@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>add Equipment</title>
+</head>
+<body>
+<h1>Заполнения карточки оборудование</h1>
+    <form method="POST" action="">
+        {{formequipmentadd.hidden_tag()}}
+        {{formequipmentadd.serial_number()}}
+        {{formequipmentadd.technical_id()}}
+        {{formequipmentadd.client_id()}}
+        {{formequipmentadd.submit()}}
+    </form>
+<a href="{{url_for('home')}}"> Home </a><br>
+</body>
+</html>

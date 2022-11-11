@@ -5,7 +5,7 @@ from sweater.models import Customer, Condition, Status, Payment_method, Payment_
 
 
 @app.route('/client_add', methods=['GET', 'POST'])
-def addclient():
+def addClient():
     formclientadd = AddClient()
     formclientadd.condition_id.choices = [(conditions.id_condition, conditions.list_condition) for conditions in
                                        Condition.query.all()]
