@@ -20,11 +20,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for el in equ %}
+                        {% for el2 in equ %}
                         <tr>
-                            <td>{{ el.date }}</td>
-                            <td>{{ el.model }}</td>
-                            <td>{{ el.serial_number }}</td>
+                            <td>{{ el2.date }}</td>
+                            <td>{{el2.technical_info.model}}</td>
+                            <td>{{ el2.serial_number }}</td>
                         </tr>
                         {% endfor %}
                     </tbody>

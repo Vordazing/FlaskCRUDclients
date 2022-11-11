@@ -84,9 +84,19 @@ class Equipment_accounting(db.Model):
     __tablename__ ='equipment_accounting'
     id_equipment_accounting = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.DATETIME, default=datetime.utcnow)
-    model = db.Column(db.String, nullable=False)
     serial_number = db.Column(db.String, nullable=False)
+
     client_id = db.Column(db.Integer, db.ForeignKey('customer.id'), nullable=False)
+    technical_id = db.Column(db.Integer, db.ForeignKey('technical_info.id_technical_list'), nullable=False)
+
+
+class Technical(db.Model):
+    __tablename__ = 'technical_info'
+    id_technical_list = db.Column(db.Integer, primary_key=True)
+    model = db.Column(db.String, nullable=False)
+    egu_2 = db.relationship('Equipment_accounting', backref='technical_info', lazy=True)
+
+
 
 
 
