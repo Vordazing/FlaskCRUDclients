@@ -3,7 +3,6 @@ from sweater import app
 from flask_login import login_required
 
 
-@app.route('/dashboard', methods=['GET', 'POST'])
-# @login_required
+@app.route('/menu', methods=['GET', 'POST'])
 def dashboard():
-    return render_template('dashboard.html')
+    return render_template('menu.html')

@@ -2,23 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>addClient</title>
+    <title>Add Client</title>
+     <link type="text/css" href="{{url_for('static', filename='css/client_add.css')}}" rel="stylesheet"/>
+
 </head>
 <body>
-<h1>Заполнения карточки клиента</h1>
-    <form method="POST" action="">
-        {{formclientadd.hidden_tag()}}
-        {{formclientadd.name()}}
-        {{formclientadd.surname()}}
-        {{formclientadd.debt()}}
-        {{formclientadd.last_account()}}
-        {{formclientadd.rate()}}
-        {{formclientadd.condition_id()}}
-        {{formclientadd.status_id()}}
-        {{formclientadd.payment_method_id()}}
-        {{formclientadd.payment_type_id()}}
-        {{formclientadd.submit()}}
-    </form>
-<a href="{{url_for('home')}}"> Home </a><br>
+<div class="container">
+    <h1 class="worker"> Add Client </h1>
+
+    <div class="box">
+        <div class="box_left">
+            <form method="POST" action="">
+                <div class="form_top">
+                    {{form.hidden_tag()}}
+                    <div>Имя<br><br>
+                    {{form.name()}}</div>
+                    <div>Фамилия<br><br>
+                    {{form.surname()}}</div>
+                    <div>Тариф в рублях<br><br>
+                    {{form.rate()}}</div>
+                </div>
+                <div class="form_down"><div>Состояние<br><br>
+                    {{form.condition_id()}}</div>
+                    <div>Статус<br><br>
+                    {{form.status_id()}}</div>
+                    <div>Способ оплаты<br><br>
+                    {{form.payment_method_id()}}</div>
+                    <div>Тип оплаты<br><br>
+                    {{form.payment_type_id()}}</div>
+                </div>
+                <a><button class="button_register">Добавить</button></a>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="button-home">
+    <ul>
+        <li><a href="{{url_for('dashboard')}}"><ion-icon name="grid-outline"></ion-icon></a></li>
+        <li><a href="{{url_for('cust')}}"><ion-icon name="people-circle-outline"></ion-icon></a></li>
+    </ul>
+</div>
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

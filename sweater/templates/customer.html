@@ -3,61 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <title>Customers</title>
-    <link type="text/css" href="{{url_for('static', filename='css/customer.css')}}" rel="stylesheet"/>
+     <link type="text/css" href="{{url_for('static', filename='css/customer.css')}}" rel="stylesheet"/>
 </head>
 <body>
-<p><a href="{{url_for('dashboard')}}">В меню</a></p>
-<section>
-  <h1>База клиентов</h1>
-  <h2><a href="{{url_for('addClient')}}">Добавить клиента</a></h2>
-  <div class="tbl-header">
-    <table cellpadding="0" cellspacing="0" border="0">
-      <thead>
-        <tr>
-          <th>Фамилия Клиента</th>
-          <th>Имя клиента</th>
-          <th>Долг</th>
-          <th>Послдений счет</th>
-          <th>Последний счет (месяца)</th>
-          <th>Тариф</th>
-          <th>Состояние</th>
-          <th>Статус</th>
-          <th>Способ оплаты</th>
-          <th>Тип оплаты</th>
-          <th>Количество машин</th>
-          <th></th>
-        </tr>
-      </thead>
-    </table>
-  </div>
-  <div class="tbl-content">
-    <table cellpadding="0" cellspacing="0" border="0">
-      <tbody>
-      {% for el in customers %}
-        <tr>
-          <td>{{ el.surname }}</td>
-          <td>{{ el.name }}</td>
-          <td>{{ el.debt }}</td>
-          <td>{{ el.last_account }}</td>
-          <td>{{ el.last_bill_of_the_month}}</td>
-          <td>{{ el.rate }}</td>
-          <td>{{ el.condition.list_condition }}</td>
-          <td>{{ el.status.list_status }}</td>
-          <td>{{ el.payment_method.list_payment_method }}</td>
-          <td>{{ el.payment_type.list_payment_type }}</td>
-          <td>{{result}}</td>
+<div class="heading"><h1>База клиентов</h1></div>
+<div class="position">
+    <div class="table-head">
+        <table>
+            <thead>
+            <tr>
+                <th class="border-th">Фамилия Клиента</th>
+                <th class="border-th">Имя клиента</th>
+                <th class="border-th">Долг</th>
+                <th class="border-th">Послдений счет</th>
+                <th class="border-th">Последний счет (месяца)</th>
+                <th class="border-th">Тариф</th>
+                <th class="border-th">Состояние</th>
+                <th class="border-th">Статус</th>
+                <th class="border-th">Способ оплаты</th>
+                <th class="border-th">Тип оплаты</th>
+                <th><a class="add" href="{{url_for('addClient')}}">Добавить клиента</a></th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
 
-          <td>
-              <a href="/customer/{{el.id}}">
-                <button>Подробнее</button>
-              </a>
-          </td>
-
+<div class="table-content">
+ <table>
+    <tbody>
+    {% for el in customers %}
+        <tr>
+            <td>{{ el.surname }}</td>
+            <td>{{ el.name }}</td>
+            <td>{{ el.debt }}</td>
+            <td>{{ el.last_account }}</td>
+            <td>{{ el.last_bill_of_the_month}}</td>
+            <td>{{ el.rate }}</td>
+            <td>{{ el.condition.list_condition }}</td>
+            <td>{{ el.status.list_status }}</td>
+            <td>{{ el.payment_method.list_payment_method }}</td>
+            <td>{{ el.payment_type.list_payment_type }}</td>
+            <td class="button-add"><a href="/customer/{{el.id}}"><button>Подробнее</button></a></td>
         </tr>
-      {% endfor %}
-      </tbody>
-    </table>
-  </div>
-</section>
+    {% endfor %}
+    </tbody>
+ </table>
+</div>
+<div class="button-home">
+    <ul>
+        <li><a href="{{url_for('dashboard')}}"><ion-icon name="grid-outline"></ion-icon></a></li>
+
+    </ul>
+</div>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

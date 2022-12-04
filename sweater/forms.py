@@ -1,14 +1,13 @@
 from flask_wtf import FlaskForm
 from wtforms_sqlalchemy.fields import QuerySelectField
-from wtforms import StringField, PasswordField, SubmitField, SelectField
+from wtforms import StringField, PasswordField, SubmitField, SelectField, FieldList, FormField
 from wtforms.validators import InputRequired, Length, ValidationError, DataRequired
-from .models import Users, Customer
+from .models import Users, Customer, Technical
 
 
 class RegisterForm(FlaskForm):
     username = StringField(validators=[InputRequired(), Length(min=4, max=20)], render_kw={"placeholder": "Username"})
     password = PasswordField(validators=[InputRequired(), Length(min=4, max=20)], render_kw={"placeholder": "Password"})
-    submit = SubmitField("Register")
 
 
 def validate_username(self, username):
@@ -20,7 +19,7 @@ def validate_username(self, username):
 class LoginFrom(FlaskForm):
     username = StringField(validators=[InputRequired(), Length(min=4, max=20)], render_kw={"placeholder": "Username"})
     password = PasswordField(validators=[InputRequired(), Length(min=4, max=20)], render_kw={"placeholder": "Password"})
-    submit = SubmitField("Login")
+    submit = SubmitField("Войти")
 
 
 class AddClient(FlaskForm):
@@ -34,7 +33,7 @@ class AddClient(FlaskForm):
     status_id = SelectField('status', choices=[], coerce=int)
     payment_method_id = SelectField('payment_method', choices=[], coerce=int)
     payment_type_id = SelectField('payment_type', choices=[], coerce=int)
-    submit = SubmitField("Добавить клиента")
+
 
 
 class UpdateClient(FlaskForm):
@@ -53,7 +52,9 @@ class UpdateClient(FlaskForm):
 
 class AddEquipment(FlaskForm):
     serial_number = StringField(validators=[DataRequired()])
-    technical_id = SelectField('technical', choices=[], coerce=int)
-    client_id = SelectField('client', choices=[], coerce=int)
-    submit = SubmitField('Добавить оборудование')
+    technical_id = SelectField('technical', choices=[(Technicals.id_technical_list, Technicals.model) for Technicals in
+                                        Technical.query.order_by(Technical.model).all()], coerce=int)
+    client_id = SelectField('client', choices=[(Customers.id, (Customers.surname, Customers.name)) for Customers in
+                                        Customer.query.order_by(Customer.surname).all()], coerce=int)
+
 

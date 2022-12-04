@@ -3,17 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <title>Register</title>
+    <link type="text/css" href="{{url_for('static', filename='css/register.css')}}" rel="stylesheet"/>
+
 </head>
 <body>
-    <h1>Register Up</h1>
+    <div class="container">
+        <h1 class="worker"> Add worker </h1>
 
-    <form method="POST" action="">
-        {{form.hidden_tag()}}
-        {{form.username()}}
-        {{form.password()}}
-        {{form.submit()}}
-    </form>
+        <div class="box">
+            <div class="box_left">
+                <form method="POST" action="">
+                    {{form.hidden_tag()}}
+                    <div class="form_top">
+                        <div class="name">Name<br><br>
+                             {{form.username()}}
+                        </div>
+                        <div class="password">Password<br><br>
+                            {{form.password()}}
+                        </div>
+                    </div>
+                    <div class="form_down">
+                        <div class="role">Role<br><br>
+                            <input type="text" placeholder="тык сюда">
+                        </div>
+                    </div>
 
-    <a href="{{url_for('login')}}"> Already have an accounts?Log In</a><br>
+                    <a><button class="button_register">Добавить</button></a>
+                </form>
+            </div>
+            <div class="box_right">
+                    <img class="box_right_img" src="/static/images/register.png" >
+            </div>
+        </div>
+    </div>
 </body>
 </html>

@@ -2,17 +2,66 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>add Equipment</title>
+    <title>Add</title>
+    <link type="text/css" href="{{url_for('static', filename='css/equipment_add.css')}}" rel="stylesheet"/>
+
 </head>
 <body>
-<h1>Заполнения карточки оборудование</h1>
-    <form method="POST" action="">
-        {{formequipmentadd.hidden_tag()}}
-        {{formequipmentadd.serial_number()}}
-        {{formequipmentadd.technical_id()}}
-        {{formequipmentadd.client_id()}}
-        {{formequipmentadd.submit()}}
-    </form>
-<a href="{{url_for('home')}}"> Home </a><br>
+<div class="container">
+    <h1 class="worker"> Добавление оборудования в базу данных </h1>
+    <div class="box">
+        <div class="box_left">
+            <form method="POST" action="/next_equipment_add">
+                <div class="form_top">
+                    <div class="content">
+                        <h3>Введите сколько хотите ввести оборудования:</h3>
+                        <input type="number" name="update" value="1">
+                    </div>
+                </div>
+                <a><button class="button_register">Обновить</button></a>
+            </form>
+        </div>
+    </div>
+</div>
+
+    <div class="position">
+            <div class="table-head">
+                <table>
+                    <caption>История</caption>
+                    <thead>
+                    <tr>
+                        <th>Дата</th>
+                        <th>Серийный номер</th>
+                        <th>Модель</th>
+                        <th>Фамилия клиента</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="table-content">
+            <table>
+                <tbody>
+                {%for el in equ%}
+                <tr>
+                    <td>{{el.date}}</td>
+                    <td>{{el.serial_number}}</td>
+                    <td>{{el.technical_info.model}}</td>
+                    <td>{{el.customer.surname}}</td>
+                </tr>
+                {%endfor%}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+ <div class="button-home">
+    <ul>
+        <li><a href="{{url_for('dashboard')}}"><ion-icon name="grid-outline"></ion-icon></a></li>
+    </ul>
+ </div>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
 </body>
 </html>

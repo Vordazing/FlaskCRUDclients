@@ -1,11 +1,13 @@
 from flask import render_template, url_for, redirect
-from flask_bcrypt import bcrypt
+from flask_login import login_required
+
 from .forms import RegisterForm
-from sweater import app, db
+from sweater import app, db, bcrypt
 from sweater.models import Users
 
 
 @app.route('/register', methods=['GET', 'POST'])
+# @login_required
 def register():
     form = RegisterForm()
 
