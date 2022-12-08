@@ -1,10 +1,328 @@
-table,
-td {
-    border: 2px solid #333;
+body {
+    margin-top: 40px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    color: black;
+    -webkit-font-smoothing: antialiased;
+
+    background-color: #2f363e;
 }
 
-thead,
-tfoot {
-    background-color: #ee7171;
-    color: #fff;
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+p {
+    margin: 0 0 10px;
+}
+
+.container
+{
+    margin: 10px 230px;
+}
+
+.worker
+{
+    margin-bottom: 5px;
+    text-align: center;
+    color: #37bb9a;
+    font-size: 28px;
+}
+
+.box
+{
+    display: flex;
+    background: #fff;
+    max-width: 80%;
+    box-shadow: #2c3140 21px 21px 33px;
+    position: relative;
+    left: 100px;;
+}
+
+.box_left
+{
+    justify-content: center;
+    padding: 50px 15px;
+    width: 100%;
+
+    text-align: center;
+    font-size: 15px;
+    font-weight: 900;
+    color: #57598a ;
+
+}
+
+form {
+    text-align: center;
+}
+
+.form_top
+{
+    position: relative;
+    left: -40px;
+    display: flex;
+    text-align: center;
+    margin: 10px;
+    padding: 5px;
+    column-gap: 5px;
+    width: 100%;
+    justify-content: center;
+
+
+}
+
+
+.form_top_left{
+    text-align: right;
+}
+.form_top_right{
+    text-align: left;
+    margin-top: 0px;
+}
+
+.form_top_left_h3{
+    margin-bottom: 1px;
+
+}
+
+.form_top_right_rate{
+    margin-top: 1px ;
+}
+
+
+.h3{
+    width: 200px;
+}
+
+.content input{
+
+    border: 1px solid #e86d99;
+    font-size: 12px;
+    text-align: center;
+}
+
+
+.button_register
+{
+    cursor: pointer;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 60px;
+    color: white;
+    font-size: 12px;
+    padding: 11px 30px;
+    background-color: #57598a;
+    border-width: 0;
+}
+
+.button_register:hover
+{
+    background-color: #ba8c63;
+    transition: background-color linear 0.2s;
+}
+
+
+.position{
+    position: center;
+    margin-left: 175px;
+    margin-right: 175px;
+}
+
+.table-head caption{
+    color: white;
+    font-size: 24px;
+}
+
+.table-head table{
+
+    position: relative;
+    text-align: center;
+    color: white;
+    margin: 4px;
+    padding: 5px;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.table-head th{
+    color: white;
+    border: 1px solid salmon;
+    padding: 2px;
+
+}
+
+.table-content{
+    width: 100%;
+    border: 1px solid #37bb9a;
+    position: relative;
+    text-align: center;
+    color: aqua;
+    height: 300px;
+    margin: 5px;
+    padding: 5px;
+    overflow-x: auto;
+}
+
+.table-content td {
+    width: 200px;
+    text-align: center;
+    padding: 4px;
+    border-bottom: 2px solid #679cd6;
+    height: 10px;
+}
+
+ul {
+    margin:0;
+    padding:0;
+    display:flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+ul li {
+    list-style:none;
+    margin: 0 15px;
+}
+
+ul li a {
+    position: relative;
+    display: block;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 60px;
+    background: #3e4455;
+    border-radius: 50%;
+    font-size: 30px;
+    color: #00b0fe;
+    transition: .5s;
+}
+
+ul li a:before {
+    content: '';
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    border-radius:50%;
+    background: #d35400;
+    transition: .5s;
+    transform: scale(.9);
+    z-index: -1;
+}
+
+ul li a:hover:before {
+    transform: scale(1.2);
+    box-shadow: 0 0 15px #d35400;
+    filter: blur(3px);
+}
+
+ul li a:hover {
+    color: #ffa502;
+    box-shadow: 0 0 15px #d35400;
+    text-shadow: 0 0 15px #d35400;
+}
+
+.ion-icon{
+    text-align: center;
+
+}
+
+.button-home{
+    position: relative;
+    top: 50px;
+    right: 515px;
+}
+
+
+
+
+.result_button_no
+{
+    position: absolute;
+    cursor: pointer;
+    margin: 5px;
+    border-radius: 60px;
+    color: white;
+    font-size: 12px;
+    padding: 5px 14px;
+    background-color: #57598a;
+    box-shadow: 39px 30px 45px -5px grey;
+    border-width: 0;
+}
+
+.result_button_no:hover
+{
+    background-color: #f54343;
+    transition: background-color linear 0.2s;
+}
+
+.result_button_yes
+{
+    position: absolute;
+    cursor: pointer;
+    margin-top: 5px;
+    margin-left: -43px;
+    border-radius: 60px;
+    color: white;
+    font-size: 12px;
+    padding: 5px 12px;
+    background-color: #57598a;
+    box-shadow: 39px 30px 45px -5px grey;
+    border-width: 0;
+}
+
+.result_button_yes:hover
+{
+    background-color: #44be57;
+    transition: background-color linear 0.2s;
+}
+
+.form_top_right select{
+    border: 1.5px solid #e86d99;
+    width: 60px;
+
+}
+
+.form_top_right input{
+
+    border: 1.5px solid #e86d99;
+    width: 60px;
+}
+
+
+
+.form_top_right_model{
+    margin-bottom: 1px;
+    margin-top: 1px;
+
+}
+
+.form_top_right_consumption{
+    margin-bottom: 1px;
+    margin-top: 1px;
+}
+
+.form_top_right_end_of_placement{
+    margin-bottom: 1px;
+    margin-top: 1px;
+}
+
+.form_top_right_start_of_placement{
+    margin-bottom: 1px;
+    margin-top: 1px;
+}
+
+.form_top_right_number_of_cars{
+    margin-bottom: 1px;
+    margin-top: 1px;
 }

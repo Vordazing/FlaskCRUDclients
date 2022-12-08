@@ -3,11 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Done add DataBase</title>
+    <link type="text/css" href="{{url_for('static', filename='css/done_db.css')}}" rel="stylesheet"/>
+
 </head>
 <body>
-<h1>Счет был записан в базу данных!</h1>
-<a href="{{url_for('dashboard')}}"><button>Вернуться в меню  </button></a>
-<a href="{{url_for('accounts_all')}}"><button>Вернуться к Счетам</button></a>
-<a href="{{url_for('cust')}}"><button>Открыть базу Клиентов</button></a>
+<div class="container">
+    <h1 class="worker">Счет был записан в базу данных!</h1>
+    <div class="box">
+        <div class="box_left">
+            <div class="button-home">
+                <ul>
+                    <li><a href="{{url_for('dashboard')}}"><ion-icon name="grid-outline"></ion-icon></a></li>
+                    <li><a href="{{url_for('accounts_all')}}"><ion-icon name="cash-outline"></ion-icon></a></li>
+                    <li><a href="{{url_for('cust')}}"><ion-icon name="people-circle-outline"></ion-icon></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
 </body>
 </html>

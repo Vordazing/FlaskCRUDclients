@@ -192,11 +192,12 @@ p {
 }
 
 .normal-table-content td {
-    width: 240px;
+    width: 110px;
     text-align: center;
     padding: 4px;
     border-bottom: 2px solid #679cd6;
     height: 10px;
+    word-wrap:break-word;
 }
 
 ul {

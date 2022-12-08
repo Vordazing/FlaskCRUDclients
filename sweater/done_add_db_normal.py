@@ -19,5 +19,8 @@ def done_normal():
     db.session.add(result)
     db.session.commit()
 
+    session.clear()
+
+
     return render_template('done_db.html')
 

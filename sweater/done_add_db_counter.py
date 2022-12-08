@@ -12,5 +12,8 @@ def done_counter():
     result = Done_accounts(client_id=client_id_db, after=after_db, result=result_db)
     db.session.add(result)
     db.session.commit()
+    session.clear()
+
+
 
     return render_template('done_db.html')

@@ -58,3 +58,9 @@ class AddEquipment(FlaskForm):
                                         Customer.query.order_by(Customer.surname).all()], coerce=int)
 
 
+class Acounts(FlaskForm):
+    model = SelectField('technical', choices=[(Technicals.id_technical_list, Technicals.model) for Technicals in
+                                        Technical.query.order_by(Technical.model).all()], coerce=int)
+
+
+

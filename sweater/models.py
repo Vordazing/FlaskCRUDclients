@@ -31,6 +31,7 @@ class Customer(db.Model):
     payment_type_id = db.Column(db.Integer, db.ForeignKey('payment_type.id_payment_type'), nullable=False)
 
     egu_1 = db.relationship('Equipment_accounting', backref='customer', lazy=True)
+    daa_1 = db.relationship('Done_accounts', backref='customer', lazy=True)
 
 
 class Condition(db.Model):
@@ -64,11 +65,11 @@ class Payment_type(db.Model):
 class Done_accounts(db.Model):
     __tablename__ = 'done_accounts'
     id_done_accounts = db.Column(db.Integer, primary_key=True)
-    client_id = db.Column(db.Integer, nullable=False)
+    client_id = db.Column(db.Integer, db.ForeignKey('customer.id'), nullable=False)
     after = db.Column(db.Integer, nullable=False)
     result = db.Column(db.String, nullable=False)
 
-    model = db.Column(db.String, nullable=False)
+    model = db.Column(db.Integer, db.ForeignKey('technical_info.id_technical_list'), nullable=False)
     consumption = db.Column(db.Float, nullable=False)
     start_of_placement = db.Column(db.Integer, nullable=False)
     end_of_placement = db.Column(db.Integer, nullable=False)
@@ -95,6 +96,7 @@ class Technical(db.Model):
     id_technical_list = db.Column(db.Integer, primary_key=True)
     model = db.Column(db.String, nullable=False)
     egu_2 = db.relationship('Equipment_accounting', backref='technical_info', lazy=True)
+    daa_1 = db.relationship('Done_accounts', backref='technical_info', lazy=True)
 
 
 

@@ -53,7 +53,7 @@
                         <th>Количество машин</th>
                         <th>Дни</th>
                         <th>Результат</th>
-                        <th>Фамилия клиента</th>
+                        <th>Клиент</th>
                     </tr>
                     </thead>
                 </table>
@@ -64,7 +64,7 @@
                 {%for el in done_accounts_normal%}
                 <tr>
                     <td>{{el.date}}</td>
-                    <td>{{el.model}}</td>
+                    <td>{{el.technical_info.model}}</td>
                     <td>{{el.consumption}}</td>
                     <td>{{el.start_of_placement}}</td>
                     <td>{{el.end_of_placement}}</td>
@@ -72,7 +72,7 @@
                     <td>{{el.number_of_cars}}</td>
                     <td>{{el.result_day}}</td>
                     <td>{{el.result}}</td>
-                    <td>{{el.client_id}}</td>
+                    <td>{{el.customer.surname}} {{el.customer.name}}</td>
 
                 </tr>
                 {%endfor%}
@@ -90,7 +90,7 @@
                         <th>Дата</th>
                         <th>Показание счетчика</th>
                         <th>Результат</th>
-                        <th>Фамилия клиента</th>
+                        <th>Клиент</th>
                     </tr>
                     </thead>
                 </table>
@@ -103,118 +103,7 @@
                     <td>{{el.date}}</td>
                     <td>{{el.after}}</td>
                     <td>{{el.result}}</td>
-                    <td>{{el.client_id}}</td>
-                </tr>
-                <tr>
-                    <td>{{el.date}}</td>
-                    <td>{{el.after}}</td>
-                    <td>{{el.result}}</td>
-                    <td>{{el.client_id}}</td>
-                </tr><tr>
-                    <td>{{el.date}}</td>
-                    <td>{{el.after}}</td>
-                    <td>{{el.result}}</td>
-                    <td>{{el.client_id}}</td>
-                </tr><tr>
-                    <td>{{el.date}}</td>
-                    <td>{{el.after}}</td>
-                    <td>{{el.result}}</td>
-                    <td>{{el.client_id}}</td>
-                </tr><tr>
-                    <td>{{el.date}}</td>
-                    <td>{{el.after}}</td>
-                    <td>{{el.result}}</td>
-                    <td>{{el.client_id}}</td>
-                </tr><tr>
-                    <td>{{el.date}}</td>
-                    <td>{{el.after}}</td>
-                    <td>{{el.result}}</td>
-                    <td>{{el.client_id}}</td>
-                </tr><tr>
-                    <td>{{el.date}}</td>
-                    <td>{{el.after}}</td>
-                    <td>{{el.result}}</td>
-                    <td>{{el.client_id}}</td>
-                </tr><tr>
-                    <td>{{el.date}}</td>
-                    <td>{{el.after}}</td>
-                    <td>{{el.result}}</td>
-                    <td>{{el.client_id}}</td>
-                </tr><tr>
-                    <td>{{el.date}}</td>
-                    <td>{{el.after}}</td>
-                    <td>{{el.result}}</td>
-                    <td>{{el.client_id}}</td>
-                </tr><tr>
-                    <td>{{el.date}}</td>
-                    <td>{{el.after}}</td>
-                    <td>{{el.result}}</td>
-                    <td>{{el.client_id}}</td>
-                </tr><tr>
-                    <td>{{el.date}}</td>
-                    <td>{{el.after}}</td>
-                    <td>{{el.result}}</td>
-                    <td>{{el.client_id}}</td>
-                </tr><tr>
-                    <td>{{el.date}}</td>
-                    <td>{{el.after}}</td>
-                    <td>{{el.result}}</td>
-                    <td>{{el.client_id}}</td>
-                </tr><tr>
-                    <td>{{el.date}}</td>
-                    <td>{{el.after}}</td>
-                    <td>{{el.result}}</td>
-                    <td>{{el.client_id}}</td>
-                </tr><tr>
-                    <td>{{el.date}}</td>
-                    <td>{{el.after}}</td>
-                    <td>{{el.result}}</td>
-                    <td>{{el.client_id}}</td>
-                </tr><tr>
-                    <td>{{el.date}}</td>
-                    <td>{{el.after}}</td>
-                    <td>{{el.result}}</td>
-                    <td>{{el.client_id}}</td>
-                </tr><tr>
-                    <td>{{el.date}}</td>
-                    <td>{{el.after}}</td>
-                    <td>{{el.result}}</td>
-                    <td>{{el.client_id}}</td>
-                </tr><tr>
-                    <td>{{el.date}}</td>
-                    <td>{{el.after}}</td>
-                    <td>{{el.result}}</td>
-                    <td>{{el.client_id}}</td>
-                </tr><tr>
-                    <td>{{el.date}}</td>
-                    <td>{{el.after}}</td>
-                    <td>{{el.result}}</td>
-                    <td>{{el.client_id}}</td>
-                </tr><tr>
-                    <td>{{el.date}}</td>
-                    <td>{{el.after}}</td>
-                    <td>{{el.result}}</td>
-                    <td>{{el.client_id}}</td>
-                </tr><tr>
-                    <td>{{el.date}}</td>
-                    <td>{{el.after}}</td>
-                    <td>{{el.result}}</td>
-                    <td>{{el.client_id}}</td>
-                </tr><tr>
-                    <td>{{el.date}}</td>
-                    <td>{{el.after}}</td>
-                    <td>{{el.result}}</td>
-                    <td>{{el.client_id}}</td>
-                </tr><tr>
-                    <td>{{el.date}}</td>
-                    <td>{{el.after}}</td>
-                    <td>{{el.result}}</td>
-                    <td>{{el.client_id}}</td>
-                </tr><tr>
-                    <td>{{el.date}}</td>
-                    <td>{{el.after}}</td>
-                    <td>{{el.result}}</td>
-                    <td>{{el.client_id}}</td>
+                    <td>{{el.customer.surname}} {{el.customer.name}}</td>
                 </tr>
                 {%endfor%}
                 </tbody>

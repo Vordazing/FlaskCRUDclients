@@ -6,68 +6,174 @@
     <link type="text/css" href="{{url_for('static', filename='css/accounts_normal.css')}}" rel="stylesheet"/>
 </head>
 <body>
-<h1>Welcome The Account Is Normal</h1>
-<h2>{{client.name}} {{client.surname}}</h2>
-<a href="/accounts_all"><button>Назад</button></a>
-    <form method="POST">
-        <label>Модель:</label>
-        <input type="text" name="model">
-        <label>Потребление:</label>
-        <input type="text" name="consumption">
-        <label>Количество машин:</label>
-        <input type="number" name="number_of_cars">
-        <label>Начало размещения:</label>
-        <input type="number" name="start_of_placement">
-        <label>Конец размещения:</label>
-        <input type="number" name="end_of_placement">
-        <label>Простой в часах:</label>
-        <input type="number" name="simple_in_hours">
-        <label>Тариф:</label>
-        <text>{{client.rate}}</text>
 
-        <input type="submit" name="add" value="Рассчитать">
+<div class="container">
+    <h1 class="worker"> {{client.name}} {{client.surname}} </h1>
+    <div class="box">
+        <div class="box_left">
+            <form method="POST" action="">
+                <div class="form_top">
+                    <div class="form_top_left">
+                        <h3 class="form_top_left_h3">Модель:</h3>
+                        <h3 class="form_top_left_h3">Потребление:</h3>
+                        <h3 class="form_top_left_h3">Количество машин:</h3>
+                        <h3 class="form_top_left_h3">Начало размещения:</h3>
+                        <h3 class="form_top_left_h3">Конец размещения:</h3>
+                        <h3 class="form_top_left_h3">Простой в часах:</h3>
+                        <h3 class="form_top_left_h3">Тариф:</h3>
+                    </div>
+                    <div class="form_top_right">
+                        <div class="form_top_right_model">
+                            {{form.model}}
+                        </div>
+                        <div class="form_top_right_consumption">
+                            <input type="text" name="consumption">
+                        </div>
+                        <div class="form_top_right_number_of_cars">
+                            <input type="number" name="number_of_cars">
+                        </div>
+                        <div class="form_top_right_start_of_placemen">
+                            <select name="start_of_placement">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+                                <option>13</option>
+                                <option>14</option>
+                                <option>15</option>
+                                <option>16</option>
+                                <option>17</option>
+                                <option>18</option>
+                                <option>19</option>
+                                <option>20</option>
+                                <option>21</option>
+                                <option>22</option>
+                                <option>23</option>
+                                <option>24</option>
+                                <option>25</option>
+                                <option>26</option>
+                                <option>27</option>
+                                <option>28</option>
+                                <option>29</option>
+                                <option>30</option>
+                                <option>31</option>
+                            </select>
+                        </div>
+                        <div class="form_top_right_end_of_placement">
+                            <select name="end_of_placement">
+                                <option>31</option>
+                                <option>30</option>
+                                <option>29</option>
+                                <option>28</option>
+                                <option>27</option>
+                                <option>26</option>
+                                <option>25</option>
+                                <option>24</option>
+                                <option>23</option>
+                                <option>22</option>
+                                <option>21</option>
+                                <option>20</option>
+                                <option>19</option>
+                                <option>18</option>
+                                <option>17</option>
+                                <option>16</option>
+                                <option>15</option>
+                                <option>14</option>
+                                <option>13</option>
+                                <option>12</option>
+                                <option>11</option>
+                                <option>10</option>
+                                <option>9</option>
+                                <option>8</option>
+                                <option>7</option>
+                                <option>6</option>
+                                <option>5</option>
+                                <option>4</option>
+                                <option>3</option>
+                                <option>2</option>
+                                <option>1</option>
+                            </select>
+                        </div>
+                        <div class="form_top_right_simple_in_hours">
+                            <input type="number" name="simple_in_hours" value=0 >
+                        </div>
+                        <div class="form_top_right_rate">
+                            <span >{{client.rate}}</span>
+                        </div>
+                    </div>
 
-     </form>
-{% if val  %}
- <h3>Результат: {{val}} руб</h3>
- <form method="POST" action="/done_add_db_normal">
-     <label> Запись в бд ?</label>
-     <a><button>YES</button></a>
- </form>
- <a href="/accounts_normal"><button>No</button></a>
-{% endif %}
+                </div>
+                <input class="button_register" type="submit" name="add" value="Рассчитать">
+            </form>
+            {% if val %}
+            <div class="result">
+                 <h3>Результат: {{val}} руб</h3>
+                 <form method="POST" action="/done_add_db_normal">
+                     <h3> Запись в бд ?</h3>
+                     <input class="result_button_yes" type="submit" value="Yes">
+                 </form>
+                <input class="result_button_no" type="submit" href="/accounts_normal" value="No">
+            </div>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+
 <br>
-<table>
-    <thead>
-        <tr>
-            <th>Date</th>
-            <th>Time</th>
-            <th>Модель</th>
-            <th>Потребление</th>
-            <th>Начало размещения</th>
-            <th>Конец размещения</th>
-            <th>Простой в часах</th>
-            <th>Кол-во</th>
-            <th>Дни</th>
-            <th>Result</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for el in accounts %}
-        <tr>
-            <td>{{ el.date }}</td>
-            <td>{{ el.time }}</td>
-            <td>{{ el.model }}</td>
-            <td>{{ el.consumption }}</td>
-            <td>{{ el.start_of_placement }}</td>
-            <td>{{ el.end_of_placement }}</td>
-            <td>{{ el.simple_in_hours }}</td>
-            <td>{{ el.number_of_cars }}</td>
-            <td>{{ el.result_day }}</td>
-            <td>{{ el.result }}</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+<div class="position">
+    <div class="table-head">
+        <table>
+            <caption>История</caption>
+            <thead>
+            <tr>
+                <th>Дата</th>
+                <th>Модель</th>
+                <th>Потребление</th>
+                <th>Начало размещения</th>
+                <th>Конец размещения</th>
+                <th>Простой в часах</th>
+                <th>Кол-во</th>
+                <th>Дни</th>
+                <th>Результат</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+    <div class="table-content">
+        <table>
+            <tbody>
+            {%for el in accounts%}
+            <tr>
+                <td>{{ el.date }}</td>
+                <td>{{ el.technical_info.model }}</td>
+                <td>{{ el.consumption }}</td>
+                <td>{{ el.start_of_placement }}</td>
+                <td>{{ el.end_of_placement }}</td>
+                <td>{{ el.simple_in_hours }}</td>
+                <td>{{ el.number_of_cars }}</td>
+                <td>{{ el.result_day }}</td>
+                <td>{{ el.result }}</td>
+            </tr>
+            {%endfor%}
+            </tbody>
+        </table>
+    </div>
+</div>
+ <div class="button-home">
+    <ul>
+        <li><a href="{{url_for('dashboard')}}"><ion-icon name="grid-outline"></ion-icon></a></li>
+    </ul>
+ </div>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
