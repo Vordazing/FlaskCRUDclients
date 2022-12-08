@@ -143,66 +143,6 @@ form {
     transition: background-color linear 0.2s;
 }
 
-
-.position{
-    width: 40%;
-    margin-left: 420px;
-    margin-right: 420px;
-
-}
-
-.position_normal{
-    width: 75%;
-    margin-left: 172px;
-    margin-right: 172px;
-
-}
-
-.table-head caption{
-    color: white;
-    font-size: 24px;
-}
-
-.table-head table{
-
-    position: relative;
-    text-align: center;
-    color: white;
-    margin: 4px;
-    padding: 5px;
-    width: 100%;
-    table-layout: fixed;
-}
-
-.table-head th{
-    color: white;
-    border: 1px solid salmon;
-    padding: 2px;
-
-}
-
-.table-content{
-    width: 100%;
-    border: 1px solid #37bb9a;
-    position: relative;
-    text-align: center;
-    color: aqua;
-    height: 300px;
-    margin: 5px;
-    padding: 5px;
-    overflow-x: auto;
-}
-
-.table-content td {
-    width: 200px;
-    text-align: center;
-    padding: 4px;
-    border-bottom: 2px solid #679cd6;
-    height: 10px;
-}
-
-
-
 .button-home{
     position: relative;
     top: 60px;
@@ -268,6 +208,69 @@ form {
     text-align: center;
 
 }
+
+
+.position{
+    width: 40%;
+    margin-left: 420px;
+    margin-right: 420px;
+
+}
+
+.position_normal{
+    width: 75%;
+    margin-left: 172px;
+    margin-right: 172px;
+
+}
+
+.table-head caption{
+    color: white;
+    font-size: 24px;
+}
+
+.table-head table{
+
+    position: relative;
+    text-align: center;
+    color: white;
+    margin: 4px;
+    padding: 5px;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.table-head th{
+    color: white;
+    border: 1px solid salmon;
+    padding: 2px;
+
+}
+
+.table-content{
+    width: 100%;
+    border: 1px solid #37bb9a;
+    position: relative;
+    text-align: center;
+    color: aqua;
+    height: 300px;
+    margin: 5px;
+    padding: 5px;
+    overflow-x: auto;
+}
+
+.table-content td {
+    width: 200px;
+    text-align: center;
+    padding: 4px;
+    border-bottom: 2px solid #679cd6;
+    height: 10px;
+}
+
+
+
+
+
 
 .modalDialog {
 	position: fixed;
