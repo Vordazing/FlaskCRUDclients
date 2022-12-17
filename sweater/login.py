@@ -14,7 +14,7 @@ def login():
         if user:
             if bcrypt.check_password_hash(user.password, form.password.data):
                 login_user(user)
-                return redirect(url_for('menu'))
+                return redirect('/menu')
     return render_template('login.html', form=form)
 
 
@@ -22,4 +22,4 @@ def login():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for("login"))
+    return redirect('/menu')

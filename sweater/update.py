@@ -20,7 +20,7 @@ def cust_update(id):
                                           payment_types in
                                           Payment_type.query.all()]
 
-    if formclientupdate.validate_on_submit():
+    if request.method == "POST":
         try:
             formclientupdate.populate_obj(customer)
             db.session.commit()

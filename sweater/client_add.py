@@ -1,10 +1,13 @@
 from flask import render_template, redirect, request
+from flask_login import login_required
+
 from .forms import AddClient
 from sweater import app, db
 from sweater.models import Customer, Condition, Status, Payment_method, Payment_type
 
 
 @app.route('/client_add', methods=['GET', 'POST'])
+@login_required
 def addClient():
     form = AddClient()
 

@@ -4,5 +4,6 @@ from flask_login import login_required
 
 
 @app.route('/menu', methods=['GET', 'POST'])
+@login_required
 def dashboard():
     return render_template('menu.html')

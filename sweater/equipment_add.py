@@ -1,17 +1,21 @@
 from flask import render_template, redirect, session, url_for
+from flask_login import login_required
 from flask_wtf import FlaskForm
 from wtforms import FieldList, FormField, SubmitField
 from .forms import AddEquipment
 from sweater import app, db, request
 from sweater.models import Equipment_accounting
 
+
 @app.route('/equipment_add', methods=['GET', 'POST'])
+@login_required
 def addEquipment():
     equ = Equipment_accounting.query.order_by(Equipment_accounting.date).all()
     return render_template('equipment_add.html',  equ=equ)
 
 
 @app.route('/next_equipment_add', methods=['POST'])
+@login_required
 def Next():
     if request.method == "POST":
         update = request.form['update']
@@ -20,6 +24,7 @@ def Next():
 
 
 @app.route('/next', methods=['GET', 'POST'])
+@login_required
 def return_form():
 
     u = session.get('update', None)

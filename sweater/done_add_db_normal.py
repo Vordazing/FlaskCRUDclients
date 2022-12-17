@@ -1,9 +1,12 @@
 from flask import render_template, session
+from flask_login import login_required
+
 from sweater import app, db
 from sweater.models import Done_accounts
 
 
 @app.route('/done_add_db_normal', methods=["GET", "POST"])
+@login_required
 def done_normal():
     client_id_db = session.get('id_client_db', None)
     model = session.get('model', None)

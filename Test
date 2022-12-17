@@ -4,6 +4,12 @@
 
 
 
-<td>{{ el2.date }}</td>
-                    <td>{{el2.technical_info.model}}</td>
-                    <td>{{ el2.serial_number }}</td>
+                           <tbody>
+                    {% for el2 in equ %}
+                        <tr>
+                            <td>{{ el2.date }}</td>
+                            <td>{{ el2.technical_info.model }}</td>
+                            <td>{{ el2.serial_number }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>

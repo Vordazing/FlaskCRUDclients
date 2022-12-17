@@ -3,28 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>Menu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link type="text/css" href="{{url_for('static', filename='css/menu.css')}}" rel="stylesheet"/>
+    <script type="text/javascript" src="{{url_for('static', filename='js/cripto.js')}}"></script>
 </head>
 <body>
-<ul class="menu">
-    <div class="toggle"><ion-icon name="add-outline"></ion-icon></div>
-    <li style="--i:0;--clr:#ff2972;"><a href="{{url_for('register')}}"><ion-icon name="body-outline"></ion-icon></a></li>
-    <li style="--i:1;--clr:#fee800;"><a href="{{url_for('cust')}}"><ion-icon name="people-circle-outline"></ion-icon></a></li>
-    <li style="--i:2;--clr:#04fc43;"><a href="#"><ion-icon name="document-attach-outline"></ion-icon></a></li>
-    <li style="--i:3;--clr:#fe00f1;"><a href="{{url_for('addEquipment')}}"><ion-icon name="aperture-outline"></ion-icon></a></li>
-    <li style="--i:4;--clr:#00b0fe;"><a href="{{url_for('accounts_all')}}"><ion-icon name="cash-outline"></ion-icon></a></li>
-    <li style="--i:5;--clr:#fea600;"><a href="#"><ion-icon name="apps-outline"></ion-icon></a></li>
-    <li style="--i:6;--clr:#a529ff;"><a href="#"><ion-icon name="bar-chart-outline"></ion-icon></a></li>
-    <li style="--i:7;--clr:#01bdab;"><a href="#"><ion-icon name="bug-outline"></ion-icon></a></li>
-</ul>
-<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-<script>
-    let  toggle = document.querySelector('.toggle');
-    let menu = document.querySelector('.menu')
-    toggle.onclick = function (){
-        menu.classList.toggle('active')
-    }
-</script>
+
+
+<div class="container"></div>
+
+<div class="container_menu">
+    <ul class="menu">
+        <div class="toggle"><ion-icon name="add-outline"></ion-icon></div>
+        <li style="--i:0;--clr:#ff2972;"><a href="{{url_for('register')}}"><ion-icon name="body-outline"></ion-icon></a></li>
+        <li style="--i:1;--clr:#fee800;"><a href="{{url_for('cust')}}"><ion-icon name="people-circle-outline"></ion-icon></a></li>
+        <li style="--i:2;--clr:#04fc43;"><a href="#"><ion-icon name="document-attach-outline"></ion-icon></a></li>
+        <li style="--i:3;--clr:#fe00f1;"><a href="{{url_for('addEquipment')}}"><ion-icon name="aperture-outline"></ion-icon></a></li>
+        <li style="--i:4;--clr:#00b0fe;"><a href="{{url_for('accounts_all')}}"><ion-icon name="cash-outline"></ion-icon></a></li>
+        <li style="--i:5;--clr:#fea600;"><a href="#"><ion-icon name="apps-outline"></ion-icon></a></li>
+        <li style="--i:6;--clr:#a529ff;"><a href="#"><ion-icon name="bar-chart-outline"></ion-icon></a></li>
+        <li style="--i:7;--clr:#01bdab;"><a href="#"><ion-icon name="bug-outline"></ion-icon></a></li>
+    </ul>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+        let  toggle = document.querySelector('.toggle');
+        let menu = document.querySelector('.menu')
+        toggle.onclick = function (){
+            menu.classList.toggle('active')
+        }
+    </script>
+</div>
+
+<div class="door">
+    <a href="/logout">Logout</a>
+</div>
 </body>
 </html>

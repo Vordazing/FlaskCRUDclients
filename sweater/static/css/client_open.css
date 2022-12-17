@@ -268,6 +268,61 @@ form {
 }
 
 
+.container_modal_position_tabel{
+    width: 100%;
+    margin-left: -4px;
+
+
+}
+
+.container_modal_tabel_head caption{
+    color: white;
+    font-size: 24px;
+}
+
+.container_modal_tabel_head table{
+
+    position: relative;
+    text-align: center;
+    color: white;
+    margin: 4px;
+    padding: 5px;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.container_modal_tabel_head th{
+    color: white;
+    border: 1px solid salmon;
+    padding: 2px;
+
+}
+
+.container_modal_tabel_content{
+    width: 100%;
+    border: 1px solid #37bb9a;
+    position: relative;
+    text-align: center;
+    color: aqua;
+    height: 300px;
+    margin: 5px;
+    padding: 5px;
+    overflow-x: auto;
+}
+
+.container_modal_tabel_content td {
+    width: 200px;
+    text-align: center;
+    padding: 4px;
+    border-bottom: 2px solid #679cd6;
+    height: 10px;
+}
+
+
+
+
+
+
 
 
 
@@ -297,7 +352,7 @@ form {
 	margin: 10% auto;
 	padding: 5px 20px 13px 20px;
 	border-radius: 10px;
-	background: #fff;
+	background: #2f363e;
 }
 .close {
 	background: #606061;
@@ -320,19 +375,6 @@ form {
 .close:hover { background: #ff0050; }
 
 
-.container_modal table{
-    top: 5px;
-    border: 3px solid #333;
-    margin: 5px;
-	display: block;
-  	overflow: auto;
-	height: 200px;
-}
-.container_modal td{
-    border: 2px solid #333;
-}
-.container_modal th{
-    background: #71ee99;
-    color: #fff;
-    border: 2px solid #333;
-}
+
+
+

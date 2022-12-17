@@ -1,9 +1,12 @@
 from flask import render_template, request, session
+from flask_login import login_required
+
 from sweater import app
 from sweater.models import Customer, Done_accounts
 
 
 @app.route('/accounts_counter', methods=["POST", "GET"])
+@login_required
 def accounts_counter():
     client_id = session.get('id_client', None)
     client = Customer.query.get(client_id)

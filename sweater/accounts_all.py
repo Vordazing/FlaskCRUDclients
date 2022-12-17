@@ -1,9 +1,12 @@
 from flask import render_template, url_for, redirect, request, session
+from flask_login import login_required
+
 from sweater import app
 from sweater.models import Customer, Done_accounts
 
 
 @app.route('/accounts_all', methods=['GET', 'POST'])
+@login_required
 def accounts_all():
 
     all = Customer.query.all()

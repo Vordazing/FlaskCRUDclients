@@ -1,9 +1,12 @@
 from flask import render_template
+from flask_login import login_required
+
 from sweater import app
 from sweater.models import Customer, Done_accounts, Equipment_accounting
 
 
 @app.route('/customer/<int:id>', methods=['GET', 'POST'])
+@login_required
 def cust_open(id):
     customer = Customer.query.get(id)
     accounts = Done_accounts.query.filter_by(client_id=id)

@@ -1,10 +1,13 @@
 from flask import render_template, request, session
+from flask_login import login_required
+
 from sweater import app
 from sweater.models import Customer, Done_accounts
 from sweater.forms import Acounts
 
 
 @app.route('/accounts_normal', methods=['GET', 'POST'])
+@login_required
 def accounts_normal():
     form = Acounts()
     client_id = session.get('id_client', None)

@@ -7,7 +7,6 @@ from sweater.models import Users
 
 
 @app.route('/register', methods=['GET', 'POST'])
-# @login_required
 def register():
     form = RegisterForm()
 
