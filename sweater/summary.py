@@ -6,7 +6,7 @@ from sweater import app
 
 
 @app.route('/summary', methods=['GET', 'POST'], defaults={"page": 1})
-@app.route('/<int:page>/<text:tag>', methods=['GET', 'POST'])
+@app.route('/<int:page>', methods=['GET', 'POST'])
 def summary(page):
     page = page
     pages = 15

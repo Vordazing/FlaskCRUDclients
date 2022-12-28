@@ -63,7 +63,7 @@
 <div>
     {% for page in result.iter_pages() %}
         {% if page %}
-            <a href="{{ url_for('summary', page=page, tag=tag) }}">{{ page }}</a>
+            <a href="{{ url_for('summary') }}">{{ page }}</a>
         {% else %}
             ...
         {% endif %}
