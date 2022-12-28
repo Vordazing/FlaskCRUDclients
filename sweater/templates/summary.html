@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Summary</title>
+    <link type="text/css" href="{{url_for('static', filename='css/summary.css')}}" rel="stylesheet"/>
+    <script type="text/javascript" src="{{url_for('static', filename='js/search.js')}}"></script>
+</head>
+<body>
+<div class="position">
+    <div class="table-head">
+        <table>
+            <thead>
+            <tr>
+                <th class="border-th">Источник</th>
+                <th class="border-th">Объект</th>
+                <th class="border-th">Хостнэйм</th>
+                <th class="border-th">IP машины</th>
+                <th class="border-th">Статус машины</th>
+                <th class="border-th">MAC машины</th>
+                <th class="border-th">Серийный номер</th>
+                <th class="border-th">Актуальный воркер</th>
+                <th class="border-th">Клиент</th>
+                <th class="border-th">Работает на </th>
+                <th class="border-th">Плата в ремонте (CH)</th>
+                <th class="border-th">Платы нет (-CH)</th>
+                <th class="border-th">Модель машины</th>
+                <th class="border-th">Доп. инфо</th>
+                <th class="border-th">Потребление</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+<div class="table-content">
+ <table class="myTabel">
+    <tbody>
+    {% for el in result.items %}
+        <tr>
+            <td>{{ el.source }}</td>
+            <td>{{ el.object }}</td>
+            <td>{{ el.hostname }}</td>
+            <td>{{ el.ip_addres }}</td>
+            <td>{{ el.status }}</td>
+            <td>{{ el.mac_address }}</td>
+            <td>{{ el.serial_number }}</td>
+            <td>{{ el.worker }}</td>
+            <td>{{ el.owner }}</td>
+            <td>{{ el.redirect }}</td>
+            <td>{{ el.plata_no_repair }}</td>
+            <td>{{ el.plata_removed }}</td>
+            <td>{{ el.model }}</td>
+            <td>{{ el.comment }}</td>
+            <td>{{ el.result_power }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+ </table>
+</div>
+
+
+<div>
+    {% for page in result.iter_pages() %}
+        {% if page %}
+            <a href="{{ url_for('summary', page_num=page) }}">{{ page }}</a>
+        {% else %}
+            ...
+        {% endif %}
+    {% endfor %}
+</div>
+
+
+
+<form method="POST" action="">
+    <div class="search">
+        <h3>Ищется: {{ tag }} </h3>
+        <h3>Глобальный поиск:</h3>
+        <input type="text" name="search" id="search" class="search_text">
+        <input class="search_submit" type="submit" value="Search">
+    </div>
+</form>
+
+
+
+
+
+
+
+</body>
+</html>

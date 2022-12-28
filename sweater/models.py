@@ -98,6 +98,27 @@ class Technical(db.Model):
     egu_2 = db.relationship('Equipment_accounting', backref='technical_info', lazy=True)
     daa_1 = db.relationship('Done_accounts', backref='technical_info', lazy=True)
 
+# ------------------------------------------------------------------>
+class Summary_all_filter(db.Model):
+    __tablename__ = 'summary_all_filter'
+    id = db.Column(db.Integer, primary_key=True)
+    source = db.Column(db.String, nullable=False)
+    object = db.Column(db.String, nullable=False)
+    hostname = db.Column(db.String, nullable=False)
+    ip_addres = db.Column(db.String, nullable=False)
+    status = db.Column(db.String, nullable=False)
+    mac_address = db.Column(db.String, nullable=False)
+    serial_number = db.Column(db.String, nullable=False)
+    worker = db.Column(db.String, nullable=False)
+    owner = db.Column(db.String, nullable=False)
+    redirect = db.Column(db.String, nullable=False)
+    plata_no_repair = db.Column(db.String, nullable=False)
+    plata_removed = db.Column(db.String, nullable=False)
+    model = db.Column(db.String, nullable=False)
+    comment = db.Column(db.String, nullable=False)
+    result_power = db.Column(db.String, nullable=False)
+
+# ------------------------------------------------------------------>
 
 
 

@@ -18,4 +18,4 @@ login_manager.login_view = "login"
 
 from sweater import models, views, menu, login, errors, register, customer, \
     client_add, client_open, update, done_add_db_counter, done_add_db_normal, \
-    accounts_counter, accounts_normal, accounts_all, equipment_add
+    accounts_counter, accounts_normal, accounts_all, equipment_add, summary

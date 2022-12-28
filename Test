@@ -1,15 +1,2 @@
- <link type="text/css" href="{{url_for('static', filename='css/???.css')}}" rel="stylesheet"/>
-
-
-
-
-
-                           <tbody>
-                    {% for el2 in equ %}
-                        <tr>
-                            <td>{{ el2.date }}</td>
-                            <td>{{ el2.technical_info.model }}</td>
-                            <td>{{ el2.serial_number }}</td>
-                        </tr>
-                    {% endfor %}
-                    </tbody>
+<link type="text/css" href="{{url_for('static', filename='css/???.css')}}" rel="stylesheet"/>
+<script type="text/javascript" src="{{url_for('static', filename='js/???.js')}}"></script>
