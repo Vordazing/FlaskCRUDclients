@@ -63,7 +63,7 @@
 <div>
     {% for page in result.iter_pages() %}
         {% if page %}
-            <a href="{{ url_for('summary', page_num=page) }}">{{ page }}</a>
+            <a href="{{ url_for('summary', page=page, tag=tag) }}">{{ page }}</a>
         {% else %}
             ...
         {% endif %}
@@ -80,12 +80,5 @@
         <input class="search_submit" type="submit" value="Search">
     </div>
 </form>
-
-
-
-
-
-
-
 </body>
 </html>
