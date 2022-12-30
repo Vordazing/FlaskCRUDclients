@@ -25,9 +25,9 @@
                 <div class="form_top_right">
                     <ul>
                         <li>Количество машин: {{count}} <a href="#openModal"><button>Подробнее</button></a> </li>
-                        <li>Банк: Error 404</li>
-                        <li>Долг: {{customer.debt}}</li>
-                        <li>Последний счет месяца: Error 404 </li>
+                        <li class="error">Банк: Error 404</li>
+                        <li class="error">Долг: Error 404</li>
+                        <li class="error">Последний счет месяца: Error 404 </li>
                     </ul>
                 </div>
             </div>
@@ -129,6 +129,7 @@
                             <th>Дата установки</th>
                             <th>Модель</th>
                             <th>Серийный номер</th>
+                            <th>Расположение</th>
                         </tr>
                     </thead>
                 </table>
@@ -136,95 +137,14 @@
             <div class="container_modal_tabel_content">
                 <table>
                     <tbody>
+                    {% for el in equ %}
                         <tr>
-                            <td>2022.01.01</td>
-                            <td>S10</td>
-                            <td>BTM1FS634620120507230123533A00374</td>
-                        </tr><tr>
-                            <td>2022.01.01</td>
-                            <td>S10</td>
-                            <td>BTM1FS634620120507230123533A00374</td>
-                        </tr><tr>
-                            <td>2022.01.01</td>
-                            <td>S10</td>
-                            <td>BTM1FS634620120507230123533A00374</td>
-                        </tr><tr>
-                            <td>2022.01.01</td>
-                            <td>S10</td>
-                            <td>BTM1FS634620120507230123533A00374</td>
-                        </tr><tr>
-                            <td>2022.01.01</td>
-                            <td>S10</td>
-                            <td>BTM1FS634620120507230123533A00374</td>
-                        </tr><tr>
-                            <td>2022.01.01</td>
-                            <td>S10</td>
-                            <td>BTM1FS634620120507230123533A00374</td>
-                        </tr><tr>
-                            <td>2022.01.01</td>
-                            <td>S10</td>
-                            <td>BTM1FS634620120507230123533A00374</td>
-                        </tr><tr>
-                            <td>2022.01.01</td>
-                            <td>S10</td>
-                            <td>BTM1FS634620120507230123533A00374</td>
-                        </tr><tr>
-                            <td>2022.01.01</td>
-                            <td>S10</td>
-                            <td>BTM1FS634620120507230123533A00374</td>
-                        </tr><tr>
-                            <td>2022.01.01</td>
-                            <td>S10</td>
-                            <td>BTM1FS634620120507230123533A00374</td>
-                        </tr><tr>
-                            <td>2022.01.01</td>
-                            <td>S10</td>
-                            <td>BTM1FS634620120507230123533A00374</td>
-                        </tr><tr>
-                            <td>2022.01.01</td>
-                            <td>S10</td>
-                            <td>BTM1FS634620120507230123533A00374</td>
-                        </tr><tr>
-                            <td>2022.01.01</td>
-                            <td>S10</td>
-                            <td>BTM1FS634620120507230123533A00374</td>
-                        </tr><tr>
-                            <td>2022.01.01</td>
-                            <td>S10</td>
-                            <td>BTM1FS634620120507230123533A00374</td>
-                        </tr><tr>
-                            <td>2022.01.01</td>
-                            <td>S10</td>
-                            <td>BTM1FS634620120507230123533A00374</td>
-                        </tr><tr>
-                            <td>2022.01.01</td>
-                            <td>S10</td>
-                            <td>BTM1FS634620120507230123533A00374</td>
-                        </tr><tr>
-                            <td>2022.01.01</td>
-                            <td>S10</td>
-                            <td>BTM1FS634620120507230123533A00374</td>
-                        </tr><tr>
-                            <td>2022.01.01</td>
-                            <td>S10</td>
-                            <td>BTM1FS634620120507230123533A00374</td>
-                        </tr><tr>
-                            <td>2022.01.01</td>
-                            <td>S10</td>
-                            <td>BTM1FS634620120507230123533A00374</td>
-                        </tr><tr>
-                            <td>2022.01.01</td>
-                            <td>S10</td>
-                            <td>BTM1FS634620120507230123533A00374</td>
-                        </tr><tr>
-                            <td>2022.01.01</td>
-                            <td>S10</td>
-                            <td>BTM1FS634620120507230123533A00374</td>
-                        </tr><tr>
-                            <td>2022.01.01</td>
-                            <td>S10</td>
-                            <td>BTM1FS634620120507230123533A00374</td>
+                            <td>{{el.date}}</td>
+                            <td>{{el.technical_info.model}}</td>
+                            <td>{{el.serial_number}}</td>
+                            <td></td>
                         </tr>
+                    {% endfor %}
                     </tbody>
                  </table>
             </div>

@@ -7,6 +7,27 @@
     <script type="text/javascript" src="{{url_for('static', filename='js/search.js')}}"></script>
 </head>
 <body>
+<br>
+<form method="POST" action="">
+    <div class="search">
+        <h3>Глобальный поиск:</h3>
+        <br>
+        <input type="text" name="search" class="search_text">
+        <div class="search_button_position">
+            <a><button class="search_button">Поиск</button></a>
+        </div>
+        <h3>Ищется --> {{ tag }} </h3>
+    </div>
+</form>
+<br>
+
+<div class="button-home">
+    <ul>
+        <li><a href="{{url_for('dashboard')}}"><ion-icon name="grid-outline"></ion-icon></a></li>
+
+    </ul>
+</div>
+
 <div class="position">
     <div class="table-head">
         <table>
@@ -59,8 +80,7 @@
  </table>
 </div>
 
-
-<div>
+<div class="search_page">
     {% for page in result.iter_pages() %}
         {% if page %}
             <a href="{{ url_for('summary', page=page, tag=tag) }}">{{ page }}</a>
@@ -70,15 +90,56 @@
     {% endfor %}
 </div>
 
+<form method="POST" action="/summary_filter">
+    <div class="search_right">
+        <h3>Поиск по фильтрам:</h3>
+        <label>Источник:</label>
+        <select name="source">
+            <option value="">Все</option>
+            <option value="Златоуст 1">Златоуст 1</option>
+            <option value="Златоуст 2">Златоуст 2</option>
+            <option value="Златоуст 3">Златоуст 3</option>
+            <option value="Иркутск 1">Иркутск 1</option>
+        </select>
+        <input type="text" placeholder="Объект" name="object" class="search_text">
+        <input type="text" placeholder="Хостнэйм" name="hostname" class="search_text">
+        <input type="text" placeholder="IP машины" name="ip_address" class="search_text">
+        <input type="text" placeholder="MAC машины" name="mac_address" class="search_text">
+        <input type="text" placeholder="Серийный номер" name="serial_number" class="search_text">
+        <input type="text" placeholder="Актуальный воркер" name="worker" class="search_text">
+        <input type="text" placeholder="Клиент" name="owner" class="search_text">
+        <input type="text" placeholder="Работает на" name="redirect" class="search_text">
+        <br>
+        <label>Плата в ремонте (CH):</label>
+        <select name="plata_no_repair">
+            <option value="0">0 CH</option>
+            <option value="1">1 CH</option>
+            <option value="2">2 CH</option>
+            <option value="3">3 CH</option>
+            <option value="4">4 CH</option>
+            <option value="5">5 CH</option>
+            <option value="6">6 CH</option>
+        </select>
 
+        <label>Платы нет (-CH):</label>
+        <select name="plata_removed">
+            <option value="0">0 -CH</option>
+            <option value="1">1 -CH</option>
+            <option value="2">2 -CH</option>
+            <option value="3">3 -CH</option>
+            <option value="4">4 -CH</option>
+            <option value="5">5 -CH</option>
+            <option value="6">6 -CH</option>
+        </select>
 
-<form method="POST" action="">
-    <div class="search">
-        <h3>Ищется: {{ tag }} </h3>
-        <h3>Глобальный поиск:</h3>
-        <input type="text" name="search" id="search" class="search_text">
-        <input class="search_submit" type="submit" value="Search">
+        <input type="text" placeholder="Модель машины" name="model" class="search_text">
+
+        <input type="text" placeholder="Потребление" name="сonsumption" class="search_text">
+        <a><button class="search_right_button">применить</button></a>
     </div>
 </form>
+<br>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

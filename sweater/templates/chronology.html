@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chronology</title>
+    <link type="text/css" href="{{url_for('static', filename='css/chronology.css')}}" rel="stylesheet"/>
+</head>
+<body>
+<div class="worker"><h3>Хронология по объектам</h3></div>
+<div class="button-home">
+    <ul>
+        <li><a href="{{url_for('dashboard')}}"><ion-icon name="grid-outline"></ion-icon></a></li>
+        <li><a href="/summary?tag="><ion-icon name="document-attach-outline"></ion-icon></a></li>
+    </ul>
+</div>
+<div class="position">
+    <a href="/chronolzlat1?tag="><button class="button_register">Златоуст 1</button></a>
+    <a href="/chronolzlat2?tag="><button class="button_register">Златоуст 2</button></a>
+    <a href="/chronolzlat3?tag="><button class="button_register">Златоуст 2</button></a>
+    <a href="/chronolirk1?tag="><button class="button_register">Иркутск 1</button></a>
+</div>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

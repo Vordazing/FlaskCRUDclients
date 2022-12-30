@@ -347,7 +347,7 @@ form {
 	pointer-events: auto;
 }
 .modalDialog > div {
-	width: 410px;
+	width: 40%;
 	position: relative;
 	margin: 10% auto;
 	padding: 5px 20px 13px 20px;
@@ -374,6 +374,9 @@ form {
 }
 .close:hover { background: #ff0050; }
 
+.error {
+    color:red;
+}
 
 
 

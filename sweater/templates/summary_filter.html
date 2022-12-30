@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Summary Filter</title>
+    <link type="text/css" href="{{url_for('static', filename='css/summary.css')}}" rel="stylesheet"/>
+</head>
+<body>
+<div class="position">
+    <div class="table-head">
+        <table>
+            <thead>
+            <tr>
+                <th class="border-th">Источник</th>
+                <th class="border-th">Объект</th>
+                <th class="border-th">Хостнэйм</th>
+                <th class="border-th">IP машины</th>
+                <th class="border-th">Статус машины</th>
+                <th class="border-th">MAC машины</th>
+                <th class="border-th">Серийный номер</th>
+                <th class="border-th">Актуальный воркер</th>
+                <th class="border-th">Клиент</th>
+                <th class="border-th">Работает на </th>
+                <th class="border-th">Плата в ремонте (CH)</th>
+                <th class="border-th">Платы нет (-CH)</th>
+                <th class="border-th">Модель машины</th>
+                <th class="border-th">Доп. инфо</th>
+                <th class="border-th">Потребление</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+<div class="table-content">
+ <table class="myTabel">
+    <tbody>
+    {% for el in result_2 %}
+        <tr>
+            <td>{{ el.source }}</td>
+            <td>{{ el.object }}</td>
+            <td>{{ el.hostname }}</td>
+            <td>{{ el.ip_addres }}</td>
+            <td>{{ el.status }}</td>
+            <td>{{ el.mac_address }}</td>
+            <td>{{ el.serial_number }}</td>
+            <td>{{ el.worker }}</td>
+            <td>{{ el.owner }}</td>
+            <td>{{ el.redirect }}</td>
+            <td>{{ el.plata_no_repair }}</td>
+            <td>{{ el.plata_removed }}</td>
+            <td>{{ el.model }}</td>
+            <td>{{ el.comment }}</td>
+            <td>{{ el.result_power }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+ </table>
+</div>
+
+<div class="search_page" >
+    <a href="/summary?tag=">Сбросить фильтр</a>
+</div>
+
+</body>
+</html>

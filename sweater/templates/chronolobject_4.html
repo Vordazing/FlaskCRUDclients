@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link type="text/css" href="{{url_for('static', filename='css/chronolobject.css')}}" rel="stylesheet"/>
+</head>
+<body>
+<br>
+<form method="POST" action="">
+    <div class="search">
+        <h3>Найти:</h3>
+        <br>
+        <input type="text" name="search" class="search_text">
+        <div class="search_button_position">
+            <a><button class="search_button">Поиск</button></a>
+        </div>
+        <h3>Ищется --> {{ tag }} </h3>
+    </div>
+</form>
+<br>
+
+<div class="button-home">
+    <ul>
+        <li><a href="{{url_for('dashboard')}}"><ion-icon name="grid-outline"></ion-icon></a></li>
+
+    </ul>
+</div>
+
+<div class="position">
+    <div class="table-head">
+        <table>
+            <thead>
+            <tr>
+                <th class="border-th">Дата</th>
+                <th class="border-th">Время</th>
+                <th class="border-th">Источник</th>
+                <th class="border-th">Объект</th>
+                <th class="border-th">Хостнэйм</th>
+                <th class="border-th">Серийный номер</th>
+                <th class="border-th">Клиент</th>
+                <th class="border-th">Работает на </th>
+                <th class="border-th">Плата в ремонте (CH)</th>
+                <th class="border-th">Платы нет (-CH)</th>
+                <th class="border-th">Модель машины</th>
+                <th class="border-th">Счетчик</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+<div class="table-content">
+ <table class="myTabel">
+    <tbody>
+    {% for el in result.items %}
+        <tr>
+            <td>{{ el.date }}</td>
+            <td>{{ el.time }}</td>
+            <td>{{ el.source }}</td>
+            <td>{{ el.object }}</td>
+            <td>{{ el.hostname }}</td>
+            <td>{{ el.serial_number }}</td>
+            <td>{{ el.owner }}</td>
+            <td>{{ el.redirect }}</td>
+            <td>{{ el.plata_no_repair }}</td>
+            <td>{{ el.plata_removed }}</td>
+            <td>{{ el.model }}</td>
+            <td>{{ el.count }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+ </table>
+</div>
+
+<div class="search_page">
+    {% for page in result.iter_pages() %}
+        {% if page %}
+            <a href="{{ url_for('chronolirk1', page=page, tag=tag) }}">{{ page }}</a>
+        {% else %}
+            ...
+        {% endif %}
+    {% endfor %}
+</div>
+<br>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

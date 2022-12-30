@@ -120,7 +120,77 @@ class Summary_all_filter(db.Model):
 
 # ------------------------------------------------------------------>
 
+# ------------------------------------------------------------------>
+class ChronolZlat1(db.Model):
+    __bind_key__ = 'chronol'
+    __tablename__ = 'chronol_zlat_1'
+    id = db.Column(db.Integer, primary_key=True)
+    date = db.Column(db.DATE, nullable=False)
+    time = db.Column(db.DATETIME, nullable=False)
+    source = db.Column(db.String, nullable=False)
+    object = db.Column(db.String, nullable=False)
+    hostname = db.Column(db.String, nullable=False)
+    serial_number = db.Column(db.String, nullable=False)
+    owner = db.Column(db.String, nullable=False)
+    redirect = db.Column(db.String, nullable=False)
+    plata_no_repair = db.Column(db.String, nullable=False)
+    plata_removed = db.Column(db.String, nullable=False)
+    model = db.Column(db.String, nullable=False)
+    count = db.Column(db.Integer, nullable=False)
 
+class ChronolZlat2(db.Model):
+    __bind_key__ = 'chronol'
+    __tablename__ = 'chronol_zlat_2'
+    id = db.Column(db.Integer, primary_key=True)
+    date = db.Column(db.DATE, nullable=False)
+    time = db.Column(db.DATETIME, nullable=False)
+    source = db.Column(db.String, nullable=False)
+    object = db.Column(db.String, nullable=False)
+    hostname = db.Column(db.String, nullable=False)
+    serial_number = db.Column(db.String, nullable=False)
+    owner = db.Column(db.String, nullable=False)
+    redirect = db.Column(db.String, nullable=False)
+    plata_no_repair = db.Column(db.String, nullable=False)
+    plata_removed = db.Column(db.String, nullable=False)
+    model = db.Column(db.String, nullable=False)
+    count = db.Column(db.Integer, nullable=False)
+
+class ChronolZlat3(db.Model):
+    __bind_key__ = 'chronol'
+    __tablename__ = 'chronol_zlat_3'
+    id = db.Column(db.Integer, primary_key=True)
+    date = db.Column(db.DATE, nullable=False)
+    time = db.Column(db.DATETIME, nullable=False)
+    source = db.Column(db.String, nullable=False)
+    object = db.Column(db.String, nullable=False)
+    hostname = db.Column(db.String, nullable=False)
+    serial_number = db.Column(db.String, nullable=False)
+    owner = db.Column(db.String, nullable=False)
+    redirect = db.Column(db.String, nullable=False)
+    plata_no_repair = db.Column(db.String, nullable=False)
+    plata_removed = db.Column(db.String, nullable=False)
+    model = db.Column(db.String, nullable=False)
+    count = db.Column(db.Integer, nullable=False)
+
+class ChronolIrk1(db.Model):
+    __bind_key__ = 'chronol'
+    __tablename__ = 'chronol_irk_1'
+    id = db.Column(db.Integer, primary_key=True)
+    date = db.Column(db.DATE, nullable=False)
+    time = db.Column(db.DATETIME, nullable=False)
+    source = db.Column(db.String, nullable=False)
+    object = db.Column(db.String, nullable=False)
+    hostname = db.Column(db.String, nullable=False)
+    serial_number = db.Column(db.String, nullable=False)
+    owner = db.Column(db.String, nullable=False)
+    redirect = db.Column(db.String, nullable=False)
+    plata_no_repair = db.Column(db.String, nullable=False)
+    plata_removed = db.Column(db.String, nullable=False)
+    model = db.Column(db.String, nullable=False)
+    count = db.Column(db.Integer, nullable=False)
+
+# ------------------------------------------------------------------>
+# ------------------------------------------------------------------>
 
 
 
